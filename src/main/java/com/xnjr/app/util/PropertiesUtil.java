@@ -31,7 +31,7 @@ public class PropertiesUtil {
 
         public static String MAIN_URL = props.getProperty("MAIN_URL");
         
-        public static String BASE_URL = props.getProperty("BASE_URL");
+        public static String USER_URL = props.getProperty("USER_URL");
 
         public static String URL_PREFIX = props.getProperty("URL_PREFIX");
 
