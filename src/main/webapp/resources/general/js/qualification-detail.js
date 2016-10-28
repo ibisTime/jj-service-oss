@@ -12,7 +12,7 @@ $(function(){
 		$("#operate").val("edit");
 		$("#operContent").text("修改数据字典");
 		var data = {"id":id};
-		var url = $("#basePath").val()+"/general/dict/detail";
+		var url = $("#basePath").val()+"/general/qualification/detail";
 		doGetAjax(url, data, doGetDetailBack);
 	}
 	
@@ -22,50 +22,46 @@ $(function(){
 			return false;
 		}
 		var data = $('form').serializeObject();
-		var url = $("#basePath").val()+"/general/dict/" + $("#operate").val();
-		ajaxPost(url, data).then(function(res) {
-			if (res.success) {
-				alert("操作成功");
-				window.location.href = $("#basePath").val()+"/general/dict.htm";
-			}
-		});
+		var url = $("#basePath").val()+"/general/qualification/" + $("#operate").val();
+		doPostAjax(url, data, doSuccessBack);
 	});
 	
 	//返回
 	$('#backBtn').click(function() {
-		location.href = $("#basePath").val()+"/general/dict.htm";
+		location.href = $("#basePath").val()+"/general/qualification.htm";
 	});
 	
 	//入参合法性校验
 	$("#jsForm").validate({
 		rules: {
-			parentKey: {
-				required: true,
+			type: {
 				maxlength: 5
 			},
-			dkey: {
-				required: true,
+			name: {
 				maxlength: 15
 			},
-			dvalue: {
-				required: true,
+			updater: {
 				maxlength: 15
+			},
+			description: {
+				maxlength: 50
 			},
 			remark: {
 				maxlength: 200
 			}
 		},
 		messages: {
-			parentKey: {
-				required: "请选择种类",
+			type: {
+				required: "请选择类型",
 			},
-			dkey: {
-				required: "请输入字典键",
-				maxlength: jQuery.format("字典键不能大于{0}个字符")
+			name: {
+				required: "请输入名称",
 			},
-			dvalue: {
-				required: "请输入字典值",
-				maxlength:jQuery.format("字典值不能大于{0}个字符")
+			updater: {
+				required: "更新人不能为空",
+			},
+			description: {
+				required: "描述不能为空"
 			},
 			remark: {
 				maxlength: jQuery.format("备注不能大于{0}个字符")
@@ -75,7 +71,7 @@ $(function(){
 });
 function initData(){
 	//父编号
-	var url =$("#basePath").val()+"/general/dict/list";
+	var url =$("#basePath").val()+"/general/qualification/list";
 	doGetAjaxIsAsync(url,{"type":"0"},false, function(res) {
 		$('#parentKey').renderDropdown(res.data, 'dkey', 'dvalue', '<option value="0">选此创建种类</option>');
 		$('#parentKey').on('change', function() {
@@ -85,13 +81,13 @@ function initData(){
 }
 function doGetDetailBack(res){
 	if (res.success) {
-		$("#id").val(res.data.id);
 		$("#type").val(res.data.type);
 		$('#parentKey').replaceWith($('<span>'+(res.data.parentKey || '无')+'</span>'));
 		$('#parentKey_chosen').remove();
-		$('#dkey').replaceWith($('<span>'+res.data.dkey+'</span>'));
-		$("#dvalue").val(res.data.dvalue);
+		$('#updater').replaceWith($('<span>'+res.data.updater+'</span>'));
+		$("#name").val(res.data.name);
 		$("#remark").val(res.data.remark);
+		$("#description").val(res.data.description);
 	}else{
 		alert(res.msg);
 	}
@@ -100,7 +96,7 @@ function doGetDetailBack(res){
 function doSuccessBack(res) {
 	if (res.success == true) {
 		alert("操作成功");
-		window.location.href = $("#basePath").val()+"/general/dict.htm";
+		window.location.href = $("#basePath").val()+"/general/qualification.htm";
 	}else{
 		alert(res.msg);
 	}

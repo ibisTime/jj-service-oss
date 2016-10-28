@@ -496,7 +496,7 @@ Array.union = function(a, b){
 
 //面包屑
 setTimeout(function() {
-	var topTitle = $('.nav .selected h2', window.parent.frames[0].document).text();
+	var topTitle = $('.nav .selected h2', window.parent.frames[0].document).text();//在chrome下会报空引用错误
 	var leftFirstTitle = $('.left-menu .active', window.parent.frames[1].document).parent().parent().find('.title').text();
 	var leftSecondTitle = $('.left-menu .active', window.parent.frames[1].document).text();
 	var html = '<li>'+topTitle+'</li><li>'+leftFirstTitle+'</li><li>'+leftSecondTitle+'</li>';

@@ -216,6 +216,10 @@
 		    <mvc:mapping path="/std/**"/>
 		    <!-- 标准相关end -->
 		    
+		    <!-- 资质相关start -->
+		    <mvc:mapping path="/qualification/**"/>
+		    <!-- 资质相关end -->
+		    
 		    <mvc:mapping path="/bank/**"/>
 		    <mvc:mapping path="/subbank/**"/>
 			<mvc:mapping path="/gene/smscaptcha/send" />
