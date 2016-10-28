@@ -483,7 +483,7 @@
       } else if (this.form_field.offsetWidth) {
         return "" + this.form_field.offsetWidth + "px";
       } else {
-    	  return 345 + 'px';
+    	  return 320 + 'px';
       }
     };
 
@@ -553,7 +553,7 @@
       return true;
     };
 
-    AbstractChosen.default_multiple_text = "Select Some Options";
+    AbstractChosen.default_multiple_text = "请选择";
 
     AbstractChosen.default_single_text = "请选择";
 
