@@ -52,7 +52,7 @@ jQuery.validator.addMethod("noactel", function (value, element) {
 
 //手机验证规则  
 jQuery.validator.addMethod("mobile", function (value, element) {
-    var mobile = /^.*$/;
+    var mobile = /^1[3|4|5|7|8]\d{9}$/;
 	return this.optional(element) || (mobile.test(value));
 }, "手机格式不对");
 
@@ -113,7 +113,7 @@ $.validator.addMethod("Z+",function(value,element){
 
 $.validator.addMethod("amount",function(value,element){
 	var aint = '' + parseInt(value.replace(/[\,]/g, ''));
-    return /^\d+$/.test(aint) && aint.length <= 13;
+    return /^\d+$/.test(aint) && /^[\d\.\,]+$/.test(value + '') && aint.length <= 13;
 }, '金额必须>=0，且小于13位');
 
 //汉字
@@ -164,27 +164,23 @@ var $beforeAfter = function(dom) {
 $beforeAfter($('.error'));
 
 $.validator.setDefaults({ ignore: ":hidden:not(textarea)" });
-$.validator.setDefaults({ 
+$('form').validate({
+	highlight: function(element) {
+        $(element).closest('.form-group').addClass('has-error');
+    },
+	unhighlight: function(element) {
+	    $(element).closest('.form-group').removeClass('has-error');
+	},
+	errorElement: 'span',
+	errorClass: 'help-block',
 	errorPlacement: function(error, element) {
 		if(element.parent('.input-group').length) {
 	        error.insertAfter(element.parent());
-	    } else if (element.is('input[type=radio]')) {
-	    	error.insertAfter(element.parent().children('label').last());
 	    } else {
-	    	error.insertAfter((element.is("textarea") && element.prev('.edui-default')) ? element.prev() : element);
+	        label.insertAfter((element.is("textarea") && element.prev('.edui-default')) ? element.prev() : element);
 	    }
 	}
- });
-//$('form').validate({
-//	highlight: function(element) {
-//        $(element).closest('.form-group').addClass('has-error');
-//    },
-//	unhighlight: function(element) {
-//	    $(element).closest('.form-group').removeClass('has-error');
-//	},
-//	errorElement: 'span',
-//	errorClass: 'help-block'
-//});
+});
 
 setTimeout(function() {
 	$('form').on('reset', function() {
