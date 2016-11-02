@@ -8,29 +8,35 @@ $(function() {
 		title: '需求名称',
 		field: 'name',
 		required: true,
-		maxlength: 30
+		readonly: true,
 	}, {
 		title: '需求类型',
-		field: 'kind',
+		field: 'type',
 		required: true,
 		type: 'select',
-		key: 'position_kind'
+		readonly: true,
+		key: 'qua_kind'
 	}, {
-		//需要加一下从数据库查出有哪些公司，做一个下拉框
 		title: '意向企业',
 		required: true,
-		field: 'exp_company',
+		field: 'expCompany',
+		type: 'select',
+		readonly: true,
+		url: $('#basePath').val() + '/general/company/list',
+		keyName: 'code',
+		valueName: 'name',
 	},{
 		title: '紧急程度',
-		field: 'urgent_level',
+		field: 'urgentLevel',
 		type: 'select',
+		readonly: true,
 		key: 'urgent_level',
 		required: true,
 	},{
 		title: '需求描述',
 		field: 'description',
 		type: 'textarea',
-		readonly: !!view,
+		readonly: true,
 	}];
 	
 	var options = {};

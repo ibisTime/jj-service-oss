@@ -14,19 +14,23 @@ $(function() {
 	},{
 		field : 'type',
 		title : '类型',
+		type: 'select',
+		data: {'1':'公告','2':'新闻'},
+		search: true,
     },{
-    	field : 'publisher',
+    	field : 'updater',
 		title : '发布人'
     },{
-		field : 'releaseTime',
-		title : '发布时间'
+		field : 'updateDatetime',
+		title : '发布时间',
+		formatter: dateTimeFormat,
 	}, {
 		field: 'remark',
 		title: '备注'
 	}];
 	buildList(router, columns);
 	
-	$('#rockBtn').click(function() {
+/*	$('#rockBtn').click(function() {
 		var selRecords = $('#tableList').bootstrapTable('getSelections');
 		if(selRecords.length <= 0){
 			alert("请选择记录");
@@ -42,6 +46,6 @@ $(function() {
 				alert(res.msg);
 			}
 		});
-	});
+	});*/
 });
 

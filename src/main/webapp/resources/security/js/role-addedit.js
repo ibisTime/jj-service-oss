@@ -3,10 +3,10 @@ $(function() {
 	var code = getQueryString('code');
 	var router = '/role';
 	
-	var fields = [{
+	var fields = [/*{
 		title: '副标题',
 		type: 'title'
-	}, {
+	}, */{
 		title: '角色名称',
 		field: 'name',
 		required: true,
@@ -16,8 +16,8 @@ $(function() {
 		field: 'level',
 		required: true,
 		type: 'select',
-		key: 'role_level',
-		multiple: true
+		key: 'role_level'
+		//multiple: true
 	}, {
 		title: '备注',
 		field: 'remark',

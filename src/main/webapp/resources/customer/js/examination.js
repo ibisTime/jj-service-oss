@@ -1,53 +1,55 @@
-$(function(){
+ $(function(){
 	showPermissionControl();
 	
-	var router = '/examination';
+	var router = '/customer/examination';
 	
 	var columns = [{
 		field : '',
 		title : '',
 		checkbox : true
 	}, {
-		field : '',
+		field : 'name',
 		title : '申请机构',
-		search: true
+		search: true,
+		formatter: function(v, r) {
+			return r.company.name;
+		}
 	}, {
-		field: '',
+		field: 'contacts',
 		title: '联系人',
+		formatter: function(v, r) {
+			return r.company.contacts;
+		}
 	}, {
 		field: 'mobile',
-		title: '联系电话'
+		title: '联系电话',
+		formatter: function(v, r) {
+				return r.company.mobile;
+			}
 	}, {
-		field: '',
+		field: 'certificateType',
 		title: '资质',
-		formatter : Dict.getNameForList('qua_kind'),
+		formatter : Dict.getNameForList('serve_type'),
 		search: true,
 		type: 'select',
-		key: 'qua_kind',
+		key: 'serve_type',
 	}, {
-		field : '',
+		field : 'approveDatetime',
 		title : '更新时间',
 		formatter: dateTimeFormat
     }];
-	buildList(router, columns, {
-		pageRouter: '/customer/examination'
-	});
+	buildList(router, columns);
 	
-	$('#rockBtn').click(function() {
+	$('#examBtn').click(function() {
 		var selRecords = $('#tableList').bootstrapTable('getSelections');
 		if(selRecords.length <= 0){
 			alert("请选择记录");
 			return;
 		}
-    	var url = $("#basePath").val()+ router + '/cancel';
-    	var data = {code:selRecords[0].code};
-		ajaxPost(url, data).then(function(res) {
-			if (res.success) {
-				alert('操作成功');
-				$('#tableList').bootstrapTable('refresh',{url: $('#tableList').bootstrapTable('getOptions').url});
-			} else {
-				alert(res.msg);
-			}
-		});
+		if (selRecords[0].company.type == 1) {
+			window.location.href = $("#basePath").val()+"/customer/examinationCom_detail.htm?certificateCode="+selRecords[0].certificateCode+"&companyCode="+encodeURI(encodeURI(selRecords[0].companyCode));
+		} else if (selRecords[0].company.type == 2){
+			window.location.href = $("#basePath").val()+"/customer/examinationPer_detail.htm?certificateCode="+selRecords[0].certificateCode+"&companyCode="+encodeURI(encodeURI(selRecords[0].companyCode));
+		}
 	});
 })

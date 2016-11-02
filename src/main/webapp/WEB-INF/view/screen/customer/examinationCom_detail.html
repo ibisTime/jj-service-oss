@@ -5,7 +5,9 @@
 <meta charset="utf-8">
 <title></title>
 <#include 'layout/resources.html'/>
-<script type="text/javascript" src="${resourceUrl}/resources/customer/js/demandQuery.js?version=${version}"></script>
+<script type="text/javascript" src="${resourceUrl}/resources/common/js/ajaxfileupload.js?version=${version}"></script>
+<script type="text/javascript" src="${resourceUrl}/resources/common/js/jquery.cityselect.js"></script>
+<script type="text/javascript" src="${resourceUrl}/resources/customer/js/companyExam.js?version=${version}"></script>
 </head>
 <body>
 	<#include 'layout/hidden_ares.html'/>
@@ -21,7 +23,7 @@
 		   <ul class="toolbar">
 	       </ul>
 	    </div>
-	    <table id="tableList" data-show-export="true"></table>
+	    <table id="tableList"></table>
     </div>
 </body>
 </html>

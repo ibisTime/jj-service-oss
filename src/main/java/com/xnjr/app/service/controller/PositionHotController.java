@@ -16,8 +16,8 @@ import com.xnjr.app.http.BizConnecter;
 import com.xnjr.app.http.JsonUtils;
 
 @Controller
-@RequestMapping(value = "/service/resume")
-public class ResumeController extends BaseController {
+@RequestMapping(value = "/service/positionHot")
+public class PositionHotController extends BaseController {
     @Autowired
     protected IDictAO dictAO;
 
@@ -25,14 +25,14 @@ public class ResumeController extends BaseController {
     @ResponseBody
     public Object addDict(@RequestBody Map map) {
     	map.put("updater", this.getSessionUser().getUserName());
-  		return BizConnecter.getBizData("612060", JsonUtils.mapToJson(map),
+  		return BizConnecter.getBizData("612081", JsonUtils.mapToJson(map),
               Object.class);
 	}
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
     public Object dropDict(@RequestBody Map map) {
-  		return BizConnecter.getBizData("612062", JsonUtils.mapToJson(map),
+  		return BizConnecter.getBizData("612082", JsonUtils.mapToJson(map),
               Object.class);
 	}
 
@@ -41,31 +41,39 @@ public class ResumeController extends BaseController {
     public Object editDict(@RequestBody Map map) {
     	map.put("id", map.get("code"));
     	map.put("updater", this.getSessionUser().getUserName());
-  		return BizConnecter.getBizData("612061", JsonUtils.mapToJson(map),
+  		return BizConnecter.getBizData("612081", JsonUtils.mapToJson(map),
               Object.class);
 	}
+    
+    @RequestMapping(value = "/up", method = RequestMethod.POST)
+    @ResponseBody
+    public Object upPosition(@RequestBody Map map) {
+    	map.put("action","1");
+  		return BizConnecter.getBizData("612085", JsonUtils.mapToJson(map),
+              Object.class);
+	}
+    
+    @RequestMapping(value = "/down", method = RequestMethod.POST)
+    @ResponseBody
+    public Object downPosition(@RequestBody Map map) {
+    	map.put("action","0");
+  		return BizConnecter.getBizData("612085", JsonUtils.mapToJson(map),
+              Object.class);
+	}
+
 
     @RequestMapping(value = "/page", method = RequestMethod.GET)
     @ResponseBody
     public Object queryDictPage(@RequestParam Map<String,String> map) {
-  	    return BizConnecter.getBizData("612070", JsonUtils.mapToJson(map),
+  	    return BizConnecter.getBizData("612090", JsonUtils.mapToJson(map),
               Object.class);
     }
-
 
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
     @ResponseBody
     public Object queryDictDetail(@RequestParam Map<String,String> map) {
     	map.put("id", map.get("code"));
-  	    return BizConnecter.getBizData("612071", JsonUtils.mapToJson(map),
+  	    return BizConnecter.getBizData("612091", JsonUtils.mapToJson(map),
               Object.class);
     }
-
-    @RequestMapping(value = "/illegal", method = RequestMethod.POST)
-    @ResponseBody
-    public Object illegalDict(@RequestBody Map map) {
-    	map.put("dealer", this.getSessionUser().getUserName());
-  		return BizConnecter.getBizData("612063", JsonUtils.mapToJson(map),
-              Object.class);
-	}
 }

@@ -220,6 +220,26 @@
 		    <mvc:mapping path="/qualification/**"/>
 		    <!-- 资质相关end -->
 		    
+		    <!-- 新闻相关start -->
+		    <mvc:mapping path="/news/**"/>
+		    <!-- 新闻相关end -->
+		    
+		    <!-- 需求方查询相关start -->
+		    <mvc:mapping path="/demandQuery/**"/>
+		    <!-- 需求方查询相关end -->
+		    
+		    <!-- 资质审核相关start -->
+		    <mvc:mapping path="/examination/**"/>
+		    <!-- 资质审核相关end -->
+		    
+		    <!-- 服务方查询相关start -->
+		    <mvc:mapping path="/serviceQuery/**"/>
+		    <!-- 服务方查询相关end -->
+		    
+		    <!-- 服务相关start -->
+		    <mvc:mapping path="/service/**"/>
+		    <!-- 服务相关end -->
+		    
 		    <mvc:mapping path="/bank/**"/>
 		    <mvc:mapping path="/subbank/**"/>
 			<mvc:mapping path="/gene/smscaptcha/send" />

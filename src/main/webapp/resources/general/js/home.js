@@ -9,45 +9,28 @@ $(function() {
 		checkbox : true
 	},{
 		field : 'name',
-		title : '位置',
-		search: true
+		title : '名字',
+		serach: true,
 	},{
-		field : 'domain',
-		title : '图1',
+		title: '类型',
+		field: 'type',
+		type: 'select',
+		data: {'1':'菜单','2':'banner','3':'模块','4':'引流','5':'启动图'},
+		serach: true,
+	},{
+    	field : 'status',
+		title : '状态',
+		search: true,
+		type: 'select',
+		data: {'0':'不显示','1':'显示'},
     },{
-    	field : 'slogan',
-		title : '图2'
-    },{
-		field : 'corporation',
-		title : '图3'
-	}, {
-		field: 'userId',
-		title: '发布人'
-	}, {
-		field: 'userId',
-		title: '发布时间'
-	}, {
-		field: 'userId',
+		field: 'orderNo',
+		title: '顺序'
+	},{
+		field: 'remark',
 		title: '备注'
 	}];
 	buildList(router, columns);
 	
-	$('#rockBtn').click(function() {
-		var selRecords = $('#tableList').bootstrapTable('getSelections');
-		if(selRecords.length <= 0){
-			alert("请选择记录");
-			return;
-		}
-    	var url = $("#basePath").val()+ router + '/cancel';
-    	var data = {code:selRecords[0].code};
-		ajaxPost(url, data).then(function(res) {
-			if (res.success) {
-				alert('操作成功');
-				$('#tableList').bootstrapTable('refresh',{url: $('#tableList').bootstrapTable('getOptions').url});
-			} else {
-				alert(res.msg);
-			}
-		});
-	});
 });
 

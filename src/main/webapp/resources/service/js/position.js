@@ -8,14 +8,11 @@ $(function(){
 		title : '',
 		checkbox : true
 	}, {
-		field : 'kind',
+		field : 'name',
 		title : '所属职位',
-		formatter : Dict.getNameForList('position_kind'),
 		search: true,
-		type: 'select',
-		key: 'position_kind'
 	}, {
-		field: 'company_code',
+		field: 'companyName',
 		title: '申请公司',
 		search: true
 	}, {
@@ -23,7 +20,10 @@ $(function(){
 		title: '联系人'
 	},{
 		field: 'mobile',
-		title: '手机号'
+		title: '手机号',
+		formatter: function(v,r){
+			return r.company.mobile;
+		},
 	}, {
 		field : 'publishDatetime',
 		title : '更新时间',
@@ -31,21 +31,21 @@ $(function(){
     }];
 	buildList(router, columns);
 	
-	$('#rockBtn').click(function() {
+	$('#illegalBtn').click(function() {
 		var selRecords = $('#tableList').bootstrapTable('getSelections');
 		if(selRecords.length <= 0){
 			alert("请选择记录");
 			return;
 		}
-    	var url = $("#basePath").val()+ router + '/cancel';
-    	var data = {code:selRecords[0].code};
-		ajaxPost(url, data).then(function(res) {
-			if (res.success) {
-				alert('操作成功');
-				$('#tableList').bootstrapTable('refresh',{url: $('#tableList').bootstrapTable('getOptions').url});
-			} else {
-				alert(res.msg);
-			}
-		});
+		window.location.href = $("#basePath").val()+"/service/illegalPosition.htm?code="+selRecords[0].code+"&name="+encodeURI(encodeURI(selRecords[0].name));
+	});
+	
+	$('#hotBtn').click(function() {
+		var selRecords = $('#tableList').bootstrapTable('getSelections');
+		if(selRecords.length <= 0){
+			alert("请选择记录");
+			return;
+		}
+		window.location.href = $("#basePath").val()+"/service/hotPosition.htm?code="+selRecords[0].code+"&name="+encodeURI(encodeURI(selRecords[0].name));
 	});
 });

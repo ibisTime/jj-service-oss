@@ -8,8 +8,7 @@ $(function(){
 		title : '',
 		checkbox : true
 	},{
-		//不清楚，要改
-		field : 'user_name',
+		field : 'publisher',
 		title : '用户名'
 	},{
 		field: 'mobile',
@@ -19,40 +18,32 @@ $(function(){
 		field: 'name',
 		title: '需求名称'
 	},{
-		field: 'kind',
+		field: 'type',
 		title: '需求类型',
 		search: true,
 		type: 'select',
-		key: 'position_kind',
+		key: 'qua_kind',
+		formatter : Dict.getNameForList('qua_kind'),
 	},{
 		title: '紧急程度',
-		field: 'urgent_level',
+		field: 'urgentLevel',
 		type: 'select',
 		key : 'urgent_level',
 		search: true,
+		formatter : Dict.getNameForList('urgent_level'),
 	},{
-		field : 'publish_datetime',
+		field : 'publishDatetime',
 		title : '更新时间',
 		formatter: dateTimeFormat,
-		search: true,
     }];
 	buildList(router, columns);
 	
-	$('#rockBtn').click(function() {
+	$('#illegalBtn').click(function() {
 		var selRecords = $('#tableList').bootstrapTable('getSelections');
 		if(selRecords.length <= 0){
 			alert("请选择记录");
 			return;
 		}
-    	var url = $("#basePath").val()+ router + '/cancel';
-    	var data = {code:selRecords[0].code};
-		ajaxPost(url, data).then(function(res) {
-			if (res.success) {
-				alert('操作成功');
-				$('#tableList').bootstrapTable('refresh',{url: $('#tableList').bootstrapTable('getOptions').url});
-			} else {
-				alert(res.msg);
-			}
-		});
+		window.location.href = $("#basePath").val()+"/service/illegalDemand.htm?code="+selRecords[0].code;
 	});
 });

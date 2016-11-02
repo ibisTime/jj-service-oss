@@ -11,46 +11,48 @@ $(function(){
 		field : 'name',
 		title : '服务名称',
 	}, {
-		field: '',
+		field: 'kind',
 		title: '所属服务',
 		type: 'select',
-		key : 'serve_level',
+		key : 'serve_type',
 		search: true
 	}, {
-		field: '',
+		field: 'companyName',
 		title: '所属企业',
 		search: true,
 	},{
-		field: '',
+		field: 'pubisher',
 		title: '联系人'
 	},{
 		title: '联系电话',
 		field: 'mobile',
 	},{
 		title: '价格区间',
-		field: '',
+		formatter: function(value, record) { 
+			  return record.quoteMin + '~' + record.quoteMax;
+			}
 	},{
-		field : 'publish_datetime',
+		field : 'publishDatetime',
 		title : '更新时间',
 		formatter: dateTimeFormat
     }];
 	buildList(router, columns);
 	
-	$('#rockBtn').click(function() {
+	$('#illegalBtn').click(function() {
 		var selRecords = $('#tableList').bootstrapTable('getSelections');
 		if(selRecords.length <= 0){
 			alert("请选择记录");
 			return;
 		}
-    	var url = $("#basePath").val()+ router + '/cancel';
-    	var data = {code:selRecords[0].code};
-		ajaxPost(url, data).then(function(res) {
-			if (res.success) {
-				alert('操作成功');
-				$('#tableList').bootstrapTable('refresh',{url: $('#tableList').bootstrapTable('getOptions').url});
-			} else {
-				alert(res.msg);
-			}
-		});
+		window.location.href = $("#basePath").val()+"/service/illegalService.htm?code="+selRecords[0].code+"&name="+encodeURI(encodeURI(selRecords[0].name));
+	});
+	
+	$('#hotBtn').click(function() {
+		var selRecords = $('#tableList').bootstrapTable('getSelections');
+		if(selRecords.length <= 0){
+			alert("请选择记录");
+			return;
+		}
+		window.location.href = $("#basePath").val()+"/service/hotService.htm?code="+selRecords[0].code+"&name="+encodeURI(encodeURI(selRecords[0].name));
 	});
 });
