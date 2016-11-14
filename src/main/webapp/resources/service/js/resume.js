@@ -11,12 +11,20 @@ $(function(){
 		field : 'name',
 		title : '简历名称'
 	}, {
-		field: 'publisher',
-		title: '属于人',
+		field: 'mobile',
+		title: '手机号',
 		search: true
 	}, {
 		field: 'useTimes',
 		title: '使用次数'
+	}, {
+		field: 'status',
+		title: '状态',
+		type: 'select',
+		data: {'0': '违规', '1': '正常'}
+	}, {
+		field: 'dealNote',
+		title: '违规提示'
 	}, {
 		field : 'publishDatetime',
 		title : '更新时间',

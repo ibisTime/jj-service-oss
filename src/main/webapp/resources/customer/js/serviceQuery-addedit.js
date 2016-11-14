@@ -1,48 +1,47 @@
 $(function() {
 	
 	var code = getQueryString('code');
-	var view = getQueryString('v');
-	var router = '/customer/examination';
+	var router = '/general/company';
+	var view = !!getQueryString('v');
 	
 	var fields = [{
-		title: '申请企业',
+		title: '名称',
+		field: 'name',
+		readonly: true
+	}, {
+		title: '所属企业',
 		field: 'company-name',
 		readonly: true,
 		type: 'm2o',
 		url: $('#basePath').val() + '/general/company_addedit.htm',
 		codeField: 'companyCode'
 	}, {
-		title: '资质',
-		field: 'certificate-name',
+		title: '所属资质',
+		field: 'qualityName',
 		readonly: true,
 		type: 'm2o',
 		url: $('#basePath').val() + '/general/qualification_addedit.htm',
-		codeField: 'certificateCode'
+		codeField: 'qualityCode'
 	}, {
 		title: '报价区间',
-		field: 'remark',
+		field: 'quoteMin',
 		readonly: true,
 		formatter: function(v, r) {
-			return r.company.remark;
+			return moneyFormat(r.quoteMin) + ' ~ ' + moneyFormat(r.quoteMax);
 		}
 	}, {
-		title: '审核意见',
-		field: 'approveNote',
-		maxlength: 255,
-		required: true,
-		readonly:!!view,
+		title: '简介',
+		field: 'description',
+		readonly: true
 	}];
 	
-	var options = {};
-	if (view) {
-		options.buttons = [{
-			'title': '返回',
+	buildDetail(router, fields, code, {
+		buttons: [{
+			title: '返回',
 			handler: function() {
 				goBack();
 			}
-		}];
-	}
-	buildDetail(router, fields, code, options);
-	
+		}]
+	});
 	
 });

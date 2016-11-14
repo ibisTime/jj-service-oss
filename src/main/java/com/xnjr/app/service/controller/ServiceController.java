@@ -47,6 +47,7 @@ public class ServiceController extends BaseController {
     @RequestMapping(value = "/hot", method = RequestMethod.POST)
     @ResponseBody
     public Object hotService(@RequestBody Map map) {
+    	map.put("orderNo", "0");
     	map.put("dealer", this.getSessionUser().getUserName());
   		return BizConnecter.getBizData("612018", JsonUtils.mapToJson(map),
               Object.class);

@@ -5,6 +5,13 @@ $(function() {
 	var router = '/service/position';
 	
 	var fields = [{
+		title: '所属企业',
+		field: 'company-name',
+		readonly: true,
+		type: 'm2o',
+		url: $('#basePath').val() + '/general/company_addedit.htm',
+		codeField: 'companyCode'
+	}, {
 		title: '职位名称',
 		field: 'name',
 		required: true,
@@ -20,7 +27,9 @@ $(function() {
 		title: '工作地点',
 		required: true,
 		readonly: true,
-		type: 'citySelect'
+		formatter: function(v, r) {
+			return r.province + ' ' + r.city;
+		}
 	},{
 		title: '工作经验',
 		field: 'experience',

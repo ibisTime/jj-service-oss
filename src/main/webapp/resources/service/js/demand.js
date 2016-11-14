@@ -8,9 +8,6 @@ $(function(){
 		title : '',
 		checkbox : true
 	},{
-		field : 'publisher',
-		title : '用户名'
-	},{
 		field: 'mobile',
 		title: '手机号',
 		search: true
@@ -18,12 +15,13 @@ $(function(){
 		field: 'name',
 		title: '需求名称'
 	},{
-		field: 'type',
-		title: '需求类型',
-		search: true,
+		title: '意向企业',
+		field: 'expCompany',
 		type: 'select',
-		key: 'qua_kind',
-		formatter : Dict.getNameForList('qua_kind'),
+		url: $('#basePath').val() + '/general/company/list',
+		keyName: 'code',
+		valueName: 'name',
+		defaultOption: 'All'
 	},{
 		title: '紧急程度',
 		field: 'urgentLevel',
@@ -32,9 +30,17 @@ $(function(){
 		search: true,
 		formatter : Dict.getNameForList('urgent_level'),
 	},{
+		field: 'status',
+		title: '状态',
+		type: 'select',
+		data: {'0': '违规', '1': '正常'}
+	}, {
+		field: 'dealNote',
+		title: '违规提示'
+	}, {
 		field : 'publishDatetime',
 		title : '更新时间',
-		formatter: dateTimeFormat,
+		formatter: dateTimeFormat
     }];
 	buildList(router, columns);
 	

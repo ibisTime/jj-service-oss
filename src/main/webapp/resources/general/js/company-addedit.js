@@ -11,34 +11,57 @@ $(function() {
 	var router = '/general/company';
 	
 	var fields = [{
+		title: '类别',
+		field: 'type',
+		readonly: !!view,
+		type: 'select',
+		data: {'1': '公司', '2': '个体户'}
+	}, {
 		title: '全称',
 		field: 'name',
 		required: true,
 		maxlength: 30,
 		readonly: !!view
 	}, {
-		title: '简称',
-		field: 'abbrName',
-		required: true,
-		readonly: !!view,
-		maxlength: 30
-	}, {
 		title: '工商营业执照号',
 		field: 'gsyyzzh',
 		required: true,
 		readonly: !!view,
-		maxlength: 30
+		maxlength: 30,
+		type: 'img'
 	}, {
-		title: '域名',
-		field: 'domain',
+		title: '企业图标',
+		field: 'logo',
 		required: true,
 		readonly: !!view,
-		maxlength: 30
+		maxlength: 30,
+		type: 'img'
 	}, {
-		title: '地址',
+		title: '联系人',
+		field: 'contacts',
+		readonly: !!view
+	}, {
+		title: '联系人电话',
+		field: 'mobile',
+		maxlength: 30,
+		readonly: !!view
+	}, {
+		title: '联系人邮箱',
+		field: 'email',
+		maxlength: 30,
+		readonly: !!view
+	}, {
+		title: '联系人qq',
+		field: 'qq',
+		maxlength: 30,
+		readonly: !!view
+	}, {
+		title: '规模',
+		field: 'scale',
 		required: true,
-		type: 'citySelect',
-		hidden: !!view,
+		readonly: !!view,
+		type: 'select',
+		key: 'comp_scale'
 	}, {
 		placeholder: '详细地址（如街道、门牌号等）',
 		field: 'address',
@@ -52,69 +75,16 @@ $(function() {
 		readonly: true,
 		formatter: function(v, r) {
 			var res = $.unique([r.province, r.city, r.area]).reverse();
-			return res.join(' ') + ' ' + r.address;
+			return res.join(' ') + ' ' + (r.address || '');
 		}
 	}, {
-		title: '文化标语',
+		title: '广告语',
 		field: 'slogan',
 		required: true,
 		readonly: !!view,
 		maxlength: 30
 	}, {
-		title: '法人',
-		field: 'corporation',
-		required: true,
-		readonly: !!view,
-		maxlength: 30
-	}, {
-		title: '实际控制人',
-		field: 'userId',
-		required: true,
-		type: 'select',
-		url: $('#basePath').val() + '/user/list',
-		keyName: 'userId',
-		valueName: 'loginName',
-		readonly: !!view,
-		hidden: isBranch
-	}, {
-		title: '联系电话',
-		field: 'mobile',
-		maxlength: 30,
-		readonly: !!view
-	}, {
-		title: '邮箱',
-		field: 'email',
-		maxlength: 30,
-		readonly: !!view
-	}, {
-		title: '传真',
-		field: 'fax',
-		maxlength: 30,
-		readonly: !!view
-	}, {
-		title: 'qq',
-		field: 'qq',
-		maxlength: 30,
-		readonly: !!view
-	}, {
-		title: '微信号',
-		field: 'weChat',
-		required: true,
-		maxlength: 30,
-		readonly: !!view
-	}, {
-		title: '微信二维码',
-		field: 'qrCode',
-		required: true,
-		type: 'img',
-		readonly: !!view
-	}, {
-		title: 'logo',
-		field: 'logo',
-		type: 'img',
-		readonly: !!view
-	}, {
-		title: '公司简介',
+		title: '简介',
 		field: 'description',
 		required: true,
 		type: 'textarea',

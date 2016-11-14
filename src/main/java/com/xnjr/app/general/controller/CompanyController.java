@@ -69,6 +69,34 @@ public class CompanyController extends BaseController {
               Object.class);
 	}
     
+    // 设置热门
+    @RequestMapping(value = "/hot", method = RequestMethod.POST)
+    @ResponseBody
+    public Object cityHot(@RequestBody Map map) {
+    	map.put("orderNo", "0");
+    	map.put("updater", this.getSessionUser().getUserName());
+  		return BizConnecter.getBizData("806006", JsonUtils.mapToJson(map),
+              Object.class);
+	}
+    
+    // 次序 + 1
+    @RequestMapping(value = "/down", method = RequestMethod.POST)
+    @ResponseBody
+    public Object cityDown(@RequestBody Map map) {
+    	map.put("action", "0");
+  		return BizConnecter.getBizData("806007", JsonUtils.mapToJson(map),
+              Object.class);
+	}
+    
+    // 次序 - 1
+    @RequestMapping(value = "/up", method = RequestMethod.POST)
+    @ResponseBody
+    public Object cityUp(@RequestBody Map map) {
+    	map.put("action", "1");
+  		return BizConnecter.getBizData("806007", JsonUtils.mapToJson(map),
+              Object.class);
+	}
+    
     // 分页查询站点
     @RequestMapping(value = "/page", method = RequestMethod.GET)
     @ResponseBody

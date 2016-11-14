@@ -9,21 +9,45 @@ $(function(){
 		checkbox : true
 	}, {
 		field : 'name',
-		title : '所属职位',
+		title : '名称',
 		search: true,
 	}, {
+		field: 'kind',
+		title: '类别',
+		type: 'select',
+		key: 'position_kind',
+		formatter: Dict.getNameForList('position_kind'),
+		search: true
+	},{
 		field: 'companyName',
-		title: '申请公司',
+		title: '所属企业',
 		search: true
 	}, {
 		field: 'publisher',
-		title: '联系人'
+		title: '联系人',
+		formatter: function(v, r) {
+			return r.company.contacts;
+		}
 	},{
 		field: 'mobile',
 		title: '手机号',
-		formatter: function(v,r){
+		formatter: function(v, r) {
 			return r.company.mobile;
-		},
+		}
+	}, {
+		field: 'status',
+		title: '状态',
+		type: 'select',
+		data: {'0': '违规', '1': '正常'}
+	}, {
+		field: 'dealNote',
+		title: '违规提示'
+	}, {
+		field: 'isHot',
+		title: '热门',
+		type: 'select',
+		search: true,
+		data: {'0': '否', '1': '是'}
 	}, {
 		field : 'publishDatetime',
 		title : '更新时间',

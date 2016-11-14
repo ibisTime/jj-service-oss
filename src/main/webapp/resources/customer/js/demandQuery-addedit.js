@@ -9,22 +9,21 @@ $(function() {
 		type: 'title'
 	}, */{
 		title: '手机号码',
-		field: 'company.mobile',
+		field: 'mobile',
 		required: true,
-		resdonly: !!view,
+		readonly: !!view
 	}, {
 		title: '注册时间',
 		field: 'publishDatetime',
 		required: true,
 		formatter: dateTimeFormat,
-		resdonly: !!view,
+		readonly: !!view
 	}, {
-		title: '状态',
 		field: 'status',
-		data: {'1':'正常','0':'违规'},
+		title: '状态',
 		type: 'select',
-		resdonly: !!view,
-		required: true,
+		key: 'user_status',
+		readonly: !!view
 	}];
 	
 	var options = {};

@@ -14,6 +14,7 @@ import com.xnjr.app.controller.BaseController;
 import com.xnjr.app.general.ao.IDictAO;
 import com.xnjr.app.http.BizConnecter;
 import com.xnjr.app.http.JsonUtils;
+import com.xnjr.app.util.UploadUtil;
 
 @Controller
 @RequestMapping(value = "/general/home")
@@ -28,6 +29,7 @@ public class HomeController extends BaseController {
     	map.put("parentCode", "0");
     	map.put("belong", "1");
     	map.put("updater", this.getSessionUser().getUserName());
+    	map.put("pic", UploadUtil.uploadPicture((String)map.get("pic")));
   		return BizConnecter.getBizData("806040", JsonUtils.mapToJson(map),
               Object.class);
 	}
@@ -47,6 +49,7 @@ public class HomeController extends BaseController {
     	map.put("belong", "1");
     	map.put("isCompanyEdit", "0");
     	map.put("updater", this.getSessionUser().getUserName());
+    	map.put("pic", UploadUtil.uploadPicture((String)map.get("pic")));
   		return BizConnecter.getBizData("806042", JsonUtils.mapToJson(map),
               Object.class);
 	}

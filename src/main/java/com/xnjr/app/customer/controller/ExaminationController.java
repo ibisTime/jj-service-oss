@@ -66,4 +66,12 @@ public class ExaminationController extends BaseController {
   	    return BizConnecter.getBizData("806152", JsonUtils.mapToJson(map),
               Object.class);
     }
+    
+	@RequestMapping(value = "/check", method = RequestMethod.POST)
+	@ResponseBody
+	public Object editDict(@RequestBody Map map) {
+	  	map.put("approveUser", this.getSessionUser().getUserName());
+		return BizConnecter.getBizData("806141", JsonUtils.mapToJson(map),
+            Object.class);
+	}
 }

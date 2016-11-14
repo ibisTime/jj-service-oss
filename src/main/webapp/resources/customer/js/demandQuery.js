@@ -1,7 +1,7 @@
 $(function(){
 	showPermissionControl();
 	
-	var router = '/customer/demandQuery';
+	var router = '/customer';
 	
 	var columns = [{
 		field : '',
@@ -12,14 +12,17 @@ $(function(){
 		title : '手机号',
 		search: true
 	}, {
-		field: 'publishDatetime',
+		field: 'updateDatetime',
 		title: '注册时间',
 		formatter: dateTimeFormat,
 	}, {
 		field: 'status',
 		title: '状态',
 		type: 'select',
-		data: {'1':'正常','0':'违规'},
+		formatter: Dict.getNameForList('user_status'),
+		key: 'user_status'
 	}];
-	buildList(router, columns);
+	buildList(router, columns, {
+		pageRouter: '/customer/customer'
+	});
 })

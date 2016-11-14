@@ -49,6 +49,7 @@ public class PositionController extends BaseController {
     @ResponseBody
     public Object hotDict(@RequestBody Map map) {
     	map.put("dealer", this.getSessionUser().getUserName());
+    	map.put("orderNo", "0");
   		return BizConnecter.getBizData("612084", JsonUtils.mapToJson(map),
               Object.class);
 	}

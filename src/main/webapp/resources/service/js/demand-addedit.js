@@ -5,27 +5,23 @@ $(function() {
 	var router = '/service/demand';
 	
 	var fields = [{
+		title: '手机号',
+		field: 'mobile',
+		readonly: true
+	},{
 		title: '需求名称',
 		field: 'name',
 		required: true,
-		readonly: true,
-	}, {
-		title: '需求类型',
-		field: 'type',
-		required: true,
-		type: 'select',
-		readonly: true,
-		key: 'qua_kind'
+		readonly: true
 	}, {
 		title: '意向企业',
-		required: true,
-		field: 'expCompany',
-		type: 'select',
+		field: 'expCompanyName',
 		readonly: true,
-		url: $('#basePath').val() + '/general/company/list',
-		keyName: 'code',
-		valueName: 'name',
-	},{
+		type: 'm2o',
+		url: $('#basePath').val() + '/general/company_addedit.htm',
+		codeField: 'expCompany',
+		defaultValue: 'All'
+	}, {
 		title: '紧急程度',
 		field: 'urgentLevel',
 		type: 'select',

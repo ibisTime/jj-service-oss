@@ -6,7 +6,8 @@ $(function() {
 		title: '参数键',
 		field: 'ckey',
 		required: true,
-		maxlength: 20
+		maxlength: 20,
+		readonly: true
 	}, {
 		title: '参数值',
 		field: 'cvalue',

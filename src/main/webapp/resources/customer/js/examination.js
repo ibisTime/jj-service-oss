@@ -8,8 +8,8 @@
 		title : '',
 		checkbox : true
 	}, {
-		field : 'name',
-		title : '申请机构',
+		field : 'companyName',
+		title : '申请企业',
 		search: true,
 		formatter: function(v, r) {
 			return r.company.name;
@@ -27,29 +27,31 @@
 				return r.company.mobile;
 			}
 	}, {
-		field: 'certificateType',
+		field: 'certificateCode',
 		title: '资质',
-		formatter : Dict.getNameForList('serve_type'),
+		url: $('#basePath').val() + '/general/qualification/list',
 		search: true,
 		type: 'select',
-		key: 'serve_type',
+		keyName: 'code',
+		valueName: 'name'
+	}, {
+		field: 'status',
+		title: '状态',
+		search: true,
+		type: 'select',
+		formatter: Dict.getNameForList('cmpcerti_status'),
+		key: 'cmpcerti_status',
+		value: '0'
 	}, {
 		field : 'approveDatetime',
 		title : '更新时间',
-		formatter: dateTimeFormat
+		formatter: function(v, r) {
+			if (v) {
+				return dateTimeFormat(v);
+			} else {
+				return dateTimeFormat(r.applyDatetime);
+			}
+		}
     }];
 	buildList(router, columns);
-	
-	$('#examBtn').click(function() {
-		var selRecords = $('#tableList').bootstrapTable('getSelections');
-		if(selRecords.length <= 0){
-			alert("请选择记录");
-			return;
-		}
-		if (selRecords[0].company.type == 1) {
-			window.location.href = $("#basePath").val()+"/customer/examinationCom_detail.htm?certificateCode="+selRecords[0].certificateCode+"&companyCode="+encodeURI(encodeURI(selRecords[0].companyCode));
-		} else if (selRecords[0].company.type == 2){
-			window.location.href = $("#basePath").val()+"/customer/examinationPer_detail.htm?certificateCode="+selRecords[0].certificateCode+"&companyCode="+encodeURI(encodeURI(selRecords[0].companyCode));
-		}
-	});
 })

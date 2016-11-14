@@ -60,7 +60,7 @@ textarea.error{background: none;margin: 0; width: 504px;}
 /*搜索表单*/
 .right-info{padding:8px;}
 .search-form{display: block; overflow: hidden; padding: 10px 0;}
-.search-form li{float: left; margin-bottom: 10px; line-height: 34px; width: 25%; overflow: hidden;}
+.search-form li{float: left; margin-bottom: 10px; line-height: 34px; width: 25%; height: 32px;}
 .search-form li label{padding-right:10px; float:left; line-height:32px;}
 .search-form input[type=text]{width: 175px; height: 30px; line-height:32px; border-top:solid 1px #ced9df; border-left:solid 1px #ced9df; border-right:solid 1px #ced9df; border-bottom:solid 1px #ced9df; background:none; text-indent:10px;}
 .search-form li select{width: 175px; height: 32px; border-radius: 0;  border-top:solid 1px #a7b5bc; border-left:solid 1px #a7b5bc; border-right:solid 1px #ced9df; border-bottom:solid 1px #ced9df;}
@@ -87,7 +87,7 @@ textarea.error{background: none;margin: 0; width: 504px;}
 .form-info{padding-left:23px;}
 .form-info li{margin-bottom:13px; clear:both;}
 .form-info input[type=checkbox] + input[type=checkbox] {margin-left: 20px;}
-.form-info li label{width:194px;line-height:34px; display:block; float:left;text-align:right;padding-right:15px;margin-bottom: 10px;}
+.form-info li label{width:194px;line-height:33px; display:block; float:left;text-align:right;padding-right:15px;margin-bottom: 0px;}
 .form-info li i{color:#7f7f7f; padding-left:20px; font-style:normal;}
 .form-info li cite{display:block; padding-top:10px;}
 .form-info li .control-def{overflow: hidden;width:320px; height:32px; line-height:32px; border-top:solid 1px #ced9df; border-left:solid 1px #ced9df; border-right:solid 1px #ced9df; border-bottom:solid 1px #ced9df; background:none; text-indent:10px;}

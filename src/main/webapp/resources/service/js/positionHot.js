@@ -12,25 +12,33 @@ $(function(){
 		title : '名称'
 	},{
 		field: 'kind',
-		title: '种类',
+		title: '类别',
 		type: 'select',
-		data: {'A':'运营'},
+		key: 'position_kind',
+		formatter: Dict.getNameForList('position_kind'),
+		search: true
 	},{
 		field: 'type',
-		title: '类型',
+		title: '工作性质',
 		type: 'select',
 	    key: 'work_type',
 	    formatter: Dict.getNameForList('work_type'),
-		search: true,
+		search: true
+	},{
+		field: 'orderNo',
+		title: '次序'
 	},{
 		field: 'publishDatetime',
 		title: '更新时间',	
-		formatter: dateTimeFormat,
-	},{
-		field : 'description',
-		title : '备注',
-    }];
-	buildList(router, columns);
+		formatter: dateTimeFormat
+	}];
+	buildList(router, columns, {
+		searchParams: {
+			isHot: 1,
+			orderDir: 'asc',
+			orderColumn: 'order_no'
+		}
+	});
 	
 	$('#upBtn').click(function() {
 		var selRecords = $('#tableList').bootstrapTable('getSelections');
@@ -54,6 +62,23 @@ $(function(){
 		}
 		var url = $("#basePath").val()+ '/service/positionHot/down';
 		ajaxPost(url, {"code": selRecords[0].code}).then(function(res) {
+			if (res.success) {
+				alert("操作成功");
+				$('#tableList').bootstrapTable('refresh',{url: $('#tableList').bootstrapTable('getOptions').url});
+			}
+		});
+	});
+	$('#hotBtn').click(function() {
+		var selRecords = $('#tableList').bootstrapTable('getSelections');
+		if(selRecords.length <= 0){
+			alert("请选择记录");
+			return;
+		}
+		if(!confirm("确认是否移出该记录？")){
+    		return false;
+    	}
+		var url = $("#basePath").val()+ '/service/position/hot';
+		ajaxPost(url, {"code": selRecords[0].code, 'isHot': 0}).then(function(res) {
 			if (res.success) {
 				alert("操作成功");
 				$('#tableList').bootstrapTable('refresh',{url: $('#tableList').bootstrapTable('getOptions').url});

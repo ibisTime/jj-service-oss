@@ -10,45 +10,38 @@ $(function() {
 		maxlength: 255,
 		readonly: !!view,
 	}, {
-		title: '类型',
+		type: 'hidden',
 		field: 'type',
-		required: true,
-		readonly: !!view,
-		type: 'select',
-		data: {'1':'菜单','2':'banner','3':'模块','4':'引流','5':'启动图'},
+		value: '2'
 	}, {
-    	field : 'status',
-		title : '状态',
-		search: true,
-		readonly: !!view,
-		type: 'select',
-		data: {'0':'不显示','1':'显示'},
-		required: true,
+		type: 'hidden',
+		field: 'status',
+		value: '1'
     },{
     	title: '显示顺序',
     	field: 'orderNo',
     	readonly: !!view,
-    	type: 'select',
-    	data: {'1':'1','2':'2','3':'3'},
     	required: true,
+    	'Z+': true,
+    	maxlength: 4
     }, {
     	title: '所在位置',
     	field: 'location',
     	readonly: !!view,
     	type: 'select',
-    	data: {'1':'web顶级菜单','2':'微信顶级菜单','3':'公司简介子菜单','4':'web顶级菜单的子菜单'},
+    	data: {'1':'首页','2':'人才首页','3':'服务首页','4':'登录页面'},
     	required: true,
     }, {
 		title: '图片',
 		field: 'pic',
 		type: 'img',
 		readonly: !!view,
+		required: true
 	}, {
 		title: '备注',
 		field: 'remark',
 		maxlength: 255,
-		type: 'textarea',
-		readonly: !!view,
+		readonly: !!view
 	}];
 	
 	var options = {};

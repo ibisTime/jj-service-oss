@@ -31,8 +31,7 @@ public class ServiceQueryController extends BaseController {
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
     @ResponseBody
     public Object queryDictDetail(@RequestParam Map<String,String> map) {
-    	map.put("id", map.get("code"));
-  	    return BizConnecter.getBizData("612131", JsonUtils.mapToJson(map),
+  	    return BizConnecter.getBizData("612031", JsonUtils.mapToJson(map),
               Object.class);
     }
 }

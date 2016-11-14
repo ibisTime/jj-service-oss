@@ -33,16 +33,44 @@ $(function() {
 		readonly:!!view,
 	}];
 	
-	var options = {};
-	if (view) {
-		options.buttons = [{
+	buildDetail(router, fields, code, {
+		buttons: [{
+			title: '通过',
+			handler: function() {
+				if ($('#jsForm').valid()) {
+					var data = $('#jsForm').serializeObject();
+					data.approveResult = 1;
+					var url = $("#basePath").val()+ router + "/check";
+					ajaxPost(url, data).then(function(res) {
+						if (res.success) {
+							alert("操作成功");
+							goBack();
+						}
+					});
+				}
+			}
+		}, {
+			title: '不通过',
+			handler: function() {
+				if ($('#jsForm').valid()) {
+					var data = $('#jsForm').serializeObject();
+					data.approveResult = 0;
+					var url = $("#basePath").val()+ router + "/check";
+					ajaxPost(url, data).then(function(res) {
+						if (res.success) {
+							alert("操作成功");
+							goBack();
+						}
+					});
+				}
+			}
+		}, {
 			'title': '返回',
 			handler: function() {
 				goBack();
 			}
-		}];
-	}
-	buildDetail(router, fields, code, options);
+		}]
+	});
 	
 	
 });

@@ -18,9 +18,6 @@ $(function() {
 		field : 'name',
 		title : '资质名称',
     },{
-    	field : 'description',
-		title : '资质简介'
-    },{
 		field : 'updateDatetime',
 		title : '更新时间',
         formatter: dateTimeFormat

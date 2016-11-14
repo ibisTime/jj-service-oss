@@ -12,18 +12,12 @@ $(function() {
 		title : '名字',
 		serach: true,
 	},{
-		title: '类型',
-		field: 'type',
-		type: 'select',
-		data: {'1':'菜单','2':'banner','3':'模块','4':'引流','5':'启动图'},
-		serach: true,
-	},{
-    	field : 'status',
-		title : '状态',
-		search: true,
-		type: 'select',
-		data: {'0':'不显示','1':'显示'},
-    },{
+    	title: '所在位置',
+    	field: 'location',
+    	type: 'select',
+    	data: {'1':'首页','2':'人才首页','3':'服务首页','4':'登录页面'},
+    	search: true
+    }, {
 		field: 'orderNo',
 		title: '顺序'
 	},{

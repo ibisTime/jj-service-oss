@@ -6,7 +6,7 @@ $(function() {
 	var fields = [{
 		title: '标题',
 		field: 'title',
-		maxlength: 30,
+		maxlength: 60,
 		required: true,
 		readonly: !!view,
 	}, {
@@ -17,7 +17,7 @@ $(function() {
 		required: true,
 		readonly: !!view,
 	}, {
-		title: '公司简介',
+		title: '内容',
 		field: 'content',
 		type: 'textarea',
 		required: true,
@@ -26,7 +26,6 @@ $(function() {
 		title: '备注',
 		field: 'remark',
 		maxlength: 30,
-		required: true,
 		readonly: !!view,
 	},{
 		title: '',
