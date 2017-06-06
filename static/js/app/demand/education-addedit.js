@@ -42,6 +42,6 @@ $(function() {
         fields: fields,
         code: code,
         view: view,
-        detailCode: '612141'
+        detailCode: '612096'
     });
 });

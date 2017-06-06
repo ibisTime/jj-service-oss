@@ -22,19 +22,11 @@ $(function() {
         readonly: !!view
     }];
 
-    var options = {};
-    if (view) {
-        options.buttons = [{
-            'title': '返回',
-            handler: function() {
-                goBack();
-            }
-        }];
-    }
 
     buildDetail({
         fields: fields,
         code: code,
+        view: view,
         detailCode: '612017',
         editCode: '612012'
     });

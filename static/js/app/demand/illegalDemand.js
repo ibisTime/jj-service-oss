@@ -13,20 +13,20 @@ $(function() {
     var options = {
         fields: fields,
         code: code,
-        //  detailCode: ' ',
+        detailCode: '612196',
 
     };
 
     options.buttons = [{
-        title: '通过',
+        title: '确定',
         handler: function() {
             if ($('#jsForm').valid()) {
                 var data = {};
                 data['code'] = code;
-                data['approver'] = sessionStorage.getItem('userName');
+                data['dealer'] = sessionStorage.getItem('userName');
                 data["dealNote"] = $("#dealNote").val();
                 reqApi({
-                    code: " ",
+                    code: "612193",
                     json: data
                 }).done(function() {
                     sucDetail();

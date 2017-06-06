@@ -27,8 +27,7 @@
      }, {
          field: 'certificateCode',
          title: '资质',
-         listCode: "",
-         //  url: $('#basePath').val() + '/general/qualification/list',
+         listCode: "612016",
          search: true,
          type: 'select',
          keyName: 'code',
@@ -54,10 +53,30 @@
      }];
      buildList({
          columns: columns,
-         pageCode: ' ',
-         deleteCode: ' ',
+         pageCode: '612075',
          searchParams: {
              companyCode: OSS.company
          }
-     })
- })
+     });
+     $('#checkBtn').click(function() {
+         var selRecords = $('#tableList').bootstrapTable('getSelections');
+         if (selRecords.length <= 0) {
+             toastr.info("请选择记录");
+             return;
+         }
+         if (selRecords.length != 0) {
+             toastr.warning("不是待审核的状态");
+             return;
+         }
+         window.location.href = "examination_check.html?code=" + selRecords[0].code;
+
+     });
+     $("#detaBtn").click(function() {
+         var selRecords = $('#tableList').bootstrapTable('getSelections');
+         if (selRecords.length <= 0) {
+             toastr.info("请选择记录");
+             return;
+         }
+         window.location.href = "examination_check.html?code=" + selRecords[0].code + "&detail=1";
+     });
+ });

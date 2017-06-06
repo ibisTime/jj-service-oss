@@ -182,16 +182,12 @@ $(function() {
         readonly: true
     }];
 
+    buildDetail({
+        fields: fields,
+        code: code,
+        view: view,
+        detailCode: '612186'
+    });
 
-    var options = {};
-    if (view) {
-        options.buttons = [{
-            'title': '返回',
-            handler: function() {
-                goBack();
-            }
-        }];
-    }
-    buildDetail(router, fields, code, options);
 
 });

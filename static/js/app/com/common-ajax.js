@@ -57,35 +57,31 @@ function urlDispatch(code) {
     // } else if (/^80[4]/.test(code)) {
     //     url = OSS.smsUrl;
     // } else {
-        url = OSS.mainUrl;
+    url = OSS.mainUrl;
     // }
     return url;
 }
 
-function reqApi(options,updateType) {
+function reqApi(options, updateType) {
     var url = urlDispatch(options.code) + "/api";
-    if(!updateType){
-    	var commonParams = {
-	        token: sessionStorage.getItem('token') || '',
-	        updater: sessionStorage.getItem('userName'),
-	        systemCode: sessionStorage.getItem('systemCode'),
-	        companyCode: OSS.company
-	         //updaterId: sessionStorage.getItem('userId'),
-	    };
-    }else{
-    	var commonParams = {
-	        token: sessionStorage.getItem('token') || '',
-	        systemCode: sessionStorage.getItem('systemCode'),
-	        companyCode: OSS.company
-	         //updaterId: sessionStorage.getItem('userId'),
-	    };
+    if (!updateType) {
+        var commonParams = {
+            token: sessionStorage.getItem('token') || '',
+            updater: sessionStorage.getItem('userName'),
+            systemCode: sessionStorage.getItem('systemCode'),
+            companyCode: OSS.company
+                //updaterId: sessionStorage.getItem('userId'),
+        };
+    } else {
+        var commonParams = {
+            token: sessionStorage.getItem('token') || '',
+            systemCode: sessionStorage.getItem('systemCode'),
+            companyCode: OSS.company
+                //updaterId: sessionStorage.getItem('userId'),
+        };
     }
-    
-    //车贷权限控制
-    if(options.code == "617015"){
-        commonParams["userId"] = getUserId();
-        commonParams["level"] = getRoleLevel();
-    }
+
+
 
     var params = {
         code: options.code,

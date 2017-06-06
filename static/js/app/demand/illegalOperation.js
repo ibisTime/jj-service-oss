@@ -10,14 +10,8 @@ $(function() {
         maxlength: 255
     }];
 
-    var options = {
-        fields: fields,
-        code: code,
-        detailCode: '612186'
-    };
-
     options.buttons = [{
-        title: '确定',
+        title: '保存',
         handler: function() {
             if ($('#jsForm').valid()) {
                 var data = {};
@@ -25,7 +19,7 @@ $(function() {
                 data['dealer'] = sessionStorage.getItem('userName');
                 data["dealNote"] = $("#dealNote").val();
                 reqApi({
-                    code: "612183",
+                    code: "612113",
                     json: data
                 }).done(function() {
                     sucDetail();
@@ -40,5 +34,6 @@ $(function() {
     }];
 
     buildDetail(options);
+
 
 });

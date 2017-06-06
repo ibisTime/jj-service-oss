@@ -2,6 +2,7 @@ $(function() {
     var code = getQueryString('code');
     var view = getQueryString('v');
 
+
     var fields = [{
         title: '标题',
         field: 'title',
@@ -16,6 +17,17 @@ $(function() {
         required: true,
         readonly: !!view,
     }, {
+        title: '发送方',
+        field: "sendPlatform",
+        maxlength: 255
+    }, {
+        title: '摘要',
+        field: "summary",
+        maxlength: 255,
+        type: "textarea",
+        normalArea: true,
+        required: true,
+    }, {
         title: '内容',
         field: 'content',
         type: 'textarea',
@@ -26,21 +38,28 @@ $(function() {
         field: 'remark',
         maxlength: 30,
         readonly: !!view,
-    }, {
-        title: '',
-        field: 'companyCode',
-        type: 'hidden',
-        value: '1',
     }];
 
-    var options = {};
+    var options = {
+        fields: fields,
+        code: code,
+        detailCode: '612007',
+        view: view,
+    };
     if (view) {
+
         options.buttons = [{
-            'title': '返回',
+            title: "返回",
             handler: function() {
                 goBack();
             }
         }];
-    }
-    buildDetail(router, fields, code, options);
+    };
+
+
+    buildDetail(options);
+
+
+
+
 });

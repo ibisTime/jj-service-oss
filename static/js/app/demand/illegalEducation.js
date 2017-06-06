@@ -13,7 +13,8 @@ $(function() {
     var options = {
         fields: fields,
         code: code,
-        detailCode: '612186'
+        detailCode: '612096',
+
     };
 
     options.buttons = [{
@@ -25,7 +26,7 @@ $(function() {
                 data['dealer'] = sessionStorage.getItem('userName');
                 data["dealNote"] = $("#dealNote").val();
                 reqApi({
-                    code: "612183",
+                    code: "612093",
                     json: data
                 }).done(function() {
                     sucDetail();

@@ -41,7 +41,7 @@ $(function() {
         field: 'dealNote',
         title: '违规提示'
     }, {
-        field: 'isHot',
+        field: 'location',
         title: '热门',
         type: 'select',
         search: true,
@@ -53,10 +53,8 @@ $(function() {
     }];
     buildList({
         columns: columns,
-        pageCode: '',
-        searchParams: {
-
-        }
+        pageCode: '612160',
+        searchParams: {}
     });
 
     $('#illegalBtn').click(function() {

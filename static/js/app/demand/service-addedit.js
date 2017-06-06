@@ -24,11 +24,12 @@ $(function() {
     }, {
         field: 'qualityCode',
         title: '所属资质',
-        url: $('#basePath').val() + '/general/qualification/detail',
+        listCode: "612016",
         search: true,
         type: 'select',
         keyName: 'code',
         valueName: 'name',
+        searchName: 'name'
         readonly: true,
         afterSet: function(v, r) {
             if (v == 2) {
@@ -364,17 +365,12 @@ $(function() {
         field: 'description',
         readonly: true
     }];
+    buildDetail({
+        fields: fields,
+        code: code,
+        view: view,
+        detailCode: "612141"
+    })
 
-    var options = {};
-    if (view) {
-        options.buttons = [{
-            'title': '返回',
-            handler: function() {
-                goBack();
-            }
-        }];
-    }
-
-    buildDetail(router, fields, code, options);
 
 });

@@ -5,7 +5,7 @@ OSS.mainUrl = '/mainUrl';
 OSS.system = 'CD-CJJ000010';
 // companyCode
 OSS.company = 'CD-CJJ000010';
-// 姚橙userId
+// userId
 OSS.SYS_USER = 'SYS_USER_YAOCHENG';
 // picUrl
 OSS.picBaseUrl = 'http://oq4vi26fi.bkt.clouddn.com';

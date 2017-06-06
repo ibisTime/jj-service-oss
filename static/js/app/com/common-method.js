@@ -911,29 +911,7 @@ function buildList(options) {
         dw && dw.close().remove();
     });
 
-    $('#checkBtn').click(function() {
-        var selRecords = $('#tableList').bootstrapTable('getSelections');
-        if (selRecords.length <= 0) {
-            toastr.info("请选择记录");
-            return;
-        } else if (selRecords.length >= 2) {
-            toastr.info("请选择一条记录");
-            return;
-        }
-        if (options.beforeCheck) {
-            if (!options.beforeCheck(selRecords[0])) {
-                return;
-            }
-        }
-        var codeParams = '';
-        if (options.uid) {
 
-            options.uid.forEach(function(i) {
-                codeParams += '&' + i + '=' + selRecords[0][i];
-            });
-        }
-        window.location.href = options.router + "_check.html?code=" + (selRecords[0].code || selRecords[0].id) + urlParamsStr + codeParams;
-    });
 
     var singleSelect = true;
     var detailView = false;

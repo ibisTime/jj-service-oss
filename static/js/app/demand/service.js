@@ -11,8 +11,7 @@ $(function() {
     }, {
         field: 'qualityCode',
         title: '所属资质',
-        listCode: '',
-        // url: $('#basePath').val() + '/general/qualification/list',
+        listCode: "612016",
         search: true,
         type: 'select',
         keyName: 'code',
@@ -51,18 +50,18 @@ $(function() {
         field: 'dealNote',
         title: '违规提示'
     }, {
-        field: 'isHot',
+        field: 'location',
         title: '热门',
         type: 'select',
         search: true,
-        data: { '0': '否', '1': '是' }
+        data: { '0': '普通', '1': '热门' }
     }, {
         field: 'publishDatetime',
         title: '更新时间',
         formatter: dateTimeFormat
     }];
     buildList({
-        pageCode: "",
+        pageCode: "612140",
         columns: columns,
         searchParams: {
             companyCode: OSS.company
@@ -76,15 +75,15 @@ $(function() {
             toastr.info("请选择记录");
             return;
         }
-        window.location.href = "illegalService.htm?code=" + selRecords[0].code + "&name=" + encodeURI(encodeURI(selRecords[0].name));
+        window.location.href = "illegalService.html?code=" + selRecords[0].code + "&name=" + encodeURI(encodeURI(selRecords[0].name));
     });
 
     $('#hotBtn').click(function() {
         var selRecords = $('#tableList').bootstrapTable('getSelections');
         if (selRecords.length <= 0) {
-            alert("请选择记录");
+            toastr.info("请选择记录");
             return;
         }
-        window.location.href = "/service/hotService.htm?code=" + selRecords[0].code + "&name=" + encodeURI(encodeURI(selRecords[0].name));
+        window.location.href = "serviceHot.html?code=" + selRecords[0].code + "&name=" + encodeURI(encodeURI(selRecords[0].name));
     });
 });

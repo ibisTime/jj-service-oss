@@ -9,17 +9,14 @@ $(function() {
         field: 'name',
         title: '简历名称'
     }, {
-        field: 'mobile',
-        title: '手机号',
-        search: true
-    }, {
-        field: 'useTimes',
-        title: '使用次数'
+        field: 'publisher',
+        title: '发布人',
     }, {
         field: 'status',
         title: '状态',
         type: 'select',
-        data: { '0': '违规', '1': '正常' }
+        data: { '0': '违规', '1': '正常' },
+        search: true
     }, {
         field: 'dealNote',
         title: '违规提示'
@@ -31,9 +28,9 @@ $(function() {
 
     buildList({
         columns: columns,
-        pageCode: '',
+        pageCode: '612185',
         searchParams: {
-
+            companyCode: OSS.company
         }
     })
 

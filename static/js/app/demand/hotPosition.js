@@ -4,23 +4,29 @@ $(function() {
 
 
     var fields = [{
-        title: '是否热门',
-        field: 'isHot',
+        title: 'UI位置',
+        field: 'location',
         type: 'select',
-        data: { '1': '是', '0': '否' },
+        data: { '0': '普通', '1': '热门' }
         required: true,
+        maxlength: 255
+    }, {
+        title: 'UI次序',
+        field: 'orderNo',
+        number: true
     }];
+
     options.buttons = [{
         title: '保存',
         handler: function() {
             if ($('#jsForm').valid()) {
                 var data = {};
                 data['code'] = code;
-                data['approver'] = sessionStorage.getItem('userName');
-                // data["approveResult"] = "1";
-                data["isHot"] = $("#isHot").val();
+                data['dealer'] = sessionStorage.getItem('userName');
+                data["orderNo"] = $("#orderNo").val();
+                data["location"] = $("#location").val();
                 reqApi({
-                    code: " ",
+                    code: "612154",
                     json: data
                 }).done(function() {
                     sucDetail();

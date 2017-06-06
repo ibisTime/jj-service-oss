@@ -1,7 +1,5 @@
 $(function() {
-    showPermissionControl();
 
-    var router = '/general/company';
 
     var columns = [{
         field: '',
@@ -12,17 +10,17 @@ $(function() {
         title: '名称',
         search: true
     }, {
-        field: 'contacts',
-        title: '联系人'
+        field: 'corporation',
+        title: '公司法人'
     }, {
         field: 'mobile',
         title: '联系人电话'
     }, {
-        field: 'isHot',
-        title: '热门',
+        field: 'location',
+        title: 'UI位置',
         type: 'select',
         search: true,
-        data: { '0': '否', '1': '是' }
+        data: { '0': '普通', '1': '热门' }
     }, {
         title: '更新时间',
         field: 'updateDatetime',
@@ -30,8 +28,7 @@ $(function() {
     }];
     buildList({
         columns: columns,
-        pageCode: ' ',
-        deleteCode: ' ',
+        pageCode: '612060',
         searchParams: {
             companyCode: OSS.company
         }

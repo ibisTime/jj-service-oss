@@ -2,28 +2,19 @@ $(function() {
 
     var code = getQueryString('code');
 
+
     var fields = [{
         title: 'UI位置',
         field: 'location',
         type: 'select',
-        data: {
-            '0': '普通',
-            '1': '热门'
-        },
+        data: { '0': '普通', '1': '热门' }
         required: true,
+        maxlength: 255
     }, {
         title: 'UI次序',
         field: 'orderNo',
-        number: true,
-        required: true,
+        number: true
     }];
-
-    var options = {
-        fields: fields,
-        code: code,
-        detailCode: '612062',
-
-    };
 
     options.buttons = [{
         title: '保存',
@@ -31,11 +22,11 @@ $(function() {
             if ($('#jsForm').valid()) {
                 var data = {};
                 data['code'] = code;
-                data['updater'] = sessionStorage.getItem('userName');
-                data["location"] = $("#location").val();
+                data['dealer'] = sessionStorage.getItem('userName');
                 data["orderNo"] = $("#orderNo").val();
+                data["location"] = $("#location").val();
                 reqApi({
-                    code: "612053",
+                    code: "612094",
                     json: data
                 }).done(function() {
                     sucDetail();
