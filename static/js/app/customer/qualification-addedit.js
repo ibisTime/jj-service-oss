@@ -7,7 +7,6 @@ $(function() {
         title: '资质类型',
         field: 'type',
         type: 'select',
-        formatter: Dict.getNameForList('qua_kind'),
         key: 'qua_kind',
         readonly: !!view
     }, {

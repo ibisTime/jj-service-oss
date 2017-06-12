@@ -47,7 +47,7 @@ $(function() {
         pageCode: "612195",
         columns: columns,
         searchParams: {
-            companyCode: OSS.company
+
         }
     });
 

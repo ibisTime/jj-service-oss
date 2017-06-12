@@ -7,7 +7,7 @@ $(function() {
         title: 'UI位置',
         field: 'location',
         type: 'select',
-        data: { '0': '普通', '1': '热门' }
+        data: { '0': '普通', '1': '热门' },
         required: true,
         maxlength: 255
     }, {
@@ -15,7 +15,11 @@ $(function() {
         field: 'orderNo',
         number: true
     }];
-
+    var options = {
+        fields: fields,
+        code: code,
+        detailCode: '612141'
+    };
     options.buttons = [{
         title: '保存',
         handler: function() {
@@ -26,7 +30,7 @@ $(function() {
                 data["orderNo"] = $("#orderNo").val();
                 data["location"] = $("#location").val();
                 reqApi({
-                    code: "612131",
+                    code: "612132",
                     json: data
                 }).done(function() {
                     sucDetail();

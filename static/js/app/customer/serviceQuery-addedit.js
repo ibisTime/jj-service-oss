@@ -12,15 +12,15 @@ $(function() {
         field: 'company-name',
         readonly: true,
         type: 'm2o',
-        // url: $('#basePath').val() + '/general/company_addedit.htm',
-        // codeField: 'companyCode'
+        url: $('#basePath').val() + '/general/company_addedit.htm',
+        codeField: 'companyCode'
     }, {
         title: '所属资质',
         field: 'qualityName',
         readonly: true,
         type: 'm2o',
-        // url: $('#basePath').val() + '/general/qualification_addedit.htm',
-        // codeField: 'qualityCode'
+        url: $('#basePath').val() + '/general/qualification_addedit.htm',
+        codeField: 'qualityCode'
     }, {
         title: '报价区间',
         field: 'quoteMin',
@@ -38,8 +38,8 @@ $(function() {
         fields: fields,
         code: code,
         view: view,
-        detailCode: ' ',
-        editCode: ' '
+        detailCode: '612062',
+        // editCode: ' '
     });
 
 

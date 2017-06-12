@@ -7,15 +7,20 @@ $(function() {
         title: 'UI位置',
         field: 'location',
         type: 'select',
-        data: { '0': '普通', '1': '热门' }
+        data: { '0': '普通', '1': '热门' },
         required: true,
         maxlength: 255
     }, {
         title: 'UI次序',
         field: 'orderNo',
-        number: true
+        number: true,
+        required: true,
     }];
-
+    var options = {
+        fields: fields,
+        code: code,
+        detailCode: '612117'
+    };
     options.buttons = [{
         title: '保存',
         handler: function() {

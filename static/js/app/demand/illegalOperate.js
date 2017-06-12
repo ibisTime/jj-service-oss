@@ -5,11 +5,15 @@ $(function() {
 
     var fields = [{
         title: '违规提示',
-        field: 'location',
+        field: 'dealNote',
         required: true,
         maxlength: 255
     }];
-
+    var options = {
+        fields: fields,
+        code: code,
+        detailCode: '612117'
+    };
     options.buttons = [{
         title: '保存',
         handler: function() {
@@ -17,10 +21,9 @@ $(function() {
                 var data = {};
                 data['code'] = code;
                 data['dealer'] = sessionStorage.getItem('userName');
-
                 data["dealNote"] = $("#dealNote").val();
                 reqApi({
-                    code: "612131",
+                    code: "612113",
                     json: data
                 }).done(function() {
                     sucDetail();
@@ -35,5 +38,6 @@ $(function() {
     }];
 
     buildDetail(options);
+
 
 });

@@ -7,7 +7,11 @@ $(function() {
         title: '违规提示',
         field: 'dealNote',
         required: true,
-        maxlength: 255
+        maxlength: 255,
+        formatter: function(v, data) {
+            var dataNote = data.resume.dealNote;
+            return dataNote;
+        }
     }];
 
     var options = {

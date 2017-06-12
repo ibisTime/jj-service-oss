@@ -21,17 +21,11 @@ $(function() {
         title: '所属企业',
         search: true
     }, {
-        field: 'publisher',
+        field: 'realName',
         title: '联系人',
-        formatter: function(v, r) {
-            return r.company.contacts;
-        }
     }, {
         field: 'mobile',
         title: '手机号',
-        formatter: function(v, r) {
-            return r.company.mobile;
-        }
     }, {
         field: 'status',
         title: '状态',
@@ -72,6 +66,6 @@ $(function() {
             toastr.info("请选择记录");
             return;
         }
-        window.location.href = "hotPosition.htm?code=" + selRecords[0].code + "&name=" + encodeURI(encodeURI(selRecords[0].name));
+        window.location.href = "hotPosition.html?code=" + selRecords[0].code + "&name=" + encodeURI(encodeURI(selRecords[0].name));
     });
 });

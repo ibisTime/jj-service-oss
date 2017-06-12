@@ -9,14 +9,18 @@ $(function() {
         field: 'name',
         title: '服务名称',
     }, {
-        field: 'qualityCode',
+        field: 'qualifyCode',
         title: '所属资质',
         listCode: "612016",
         search: true,
         type: 'select',
         keyName: 'code',
         valueName: 'name',
-        searchName: 'name'
+        searchName: 'name',
+        visible: false
+    }, {
+        title: "所属资质",
+        field: "qualityName",
     }, {
         field: 'companyName',
         title: '所属企业',
@@ -28,7 +32,7 @@ $(function() {
         field: 'pubisher',
         title: '联系人',
         formatter: function(v, r) {
-            return r.company.contacts;
+            return r.company.corporation;
         }
     }, {
         title: '联系电话',
@@ -62,10 +66,7 @@ $(function() {
     }];
     buildList({
         pageCode: "612140",
-        columns: columns,
-        searchParams: {
-            companyCode: OSS.company
-        }
+        columns: columns
     });
 
 

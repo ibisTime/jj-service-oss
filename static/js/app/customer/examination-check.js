@@ -2,11 +2,7 @@ $(function() {
 
     var code = getQueryString('code');
     var view = getQueryString('v');
-    var cmpcertiStatus = {
-        "1": "待审核",
-        '2': "审核通过",
-        "3": "审核未通过"
-    }
+
     var compScale = {
         "1": "0-20人",
         "2": " 20 - 50 人",
@@ -82,7 +78,8 @@ $(function() {
             type: 'textarea',
             readonly: true,
 
-        }, {
+        },
+        {
             title: "资质",
             type: "title"
         },
@@ -125,36 +122,11 @@ $(function() {
                 return data.oriData.qualifyName
             },
             readonly: true
-        },
-        {
-            field: 'status',
-            title: '状态',
-            type: 'select',
-            formatter: function(v, data) {
-                return cmpcertiStatus[data.oriData.status];
-            },
-            // key: 'cmpcerti_status',
-
-        }, {
-            title: "审核人",
-            field: "approver",
-            formatter: function(v, data) {
-                return data.oriData.approver
-            },
         }, {
             title: "审核说明",
             field: "approveNote",
-            formatter: function(v, data) {
-                return data.oriData.approveNote
-            },
-        },
-        // {
-        //     title: "审核时间",
-        //     field: "approveDatetime",
-        //     formatter: function(v, data) {
-        //         return dateTimeFormat[data.oriData.approveDatetime];
-        //     },
-        // }
+            required: true
+        }
     ]
 
 
@@ -162,15 +134,53 @@ $(function() {
         fields: fields,
         code: code,
         detailCode: '612077',
-        view: true,
-        buttons: buttons,
+        // view: true,
+        // buttons: buttons,
         dataType: "company"
     };
-    var buttons = [{
+
+
+    options.buttons = [{
+        title: '通过',
+        handler: function() {
+            if ($('#jsForm').valid()) {
+                var data = {};
+                data['code'] = code;
+                data['approveUser'] = sessionStorage.getItem('userName');
+                data["approveResult"] = "1";
+                data["approveNote"] = $("#approveNote").val();
+                reqApi({
+                    code: "612073",
+                    json: data
+                }).done(function() {
+                    sucDetail();
+                });
+            }
+        }
+    }, {
+        title: '不通过',
+        handler: function() {
+            if ($('#jsForm').valid()) {
+                var data = {};
+                data['code'] = code;
+                data['approveUser'] = sessionStorage.getItem('userName');
+                data["approveResult"] = "0";
+                data["approveNote"] = $("#approveNote").val();
+                reqApi({
+                    code: "612073",
+                    json: data
+                }).done(function() {
+                    sucDetail();
+                });
+            }
+        }
+    }, {
         title: '返回',
         handler: function() {
             goBack();
         }
     }];
+
     buildDetail(options);
+
 });

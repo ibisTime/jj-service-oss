@@ -9,6 +9,11 @@ $(function() {
         required: true,
         maxlength: 255
     }];
+    var options = {
+        fields: fields,
+        code: code,
+        detailCode: '612141'
+    };
 
     options.buttons = [{
         title: '保存',
@@ -19,7 +24,7 @@ $(function() {
                 data['dealer'] = sessionStorage.getItem('userName');
                 data["dealNote"] = $("#dealNote").val();
                 reqApi({
-                    code: "612113",
+                    code: "612131",
                     json: data
                 }).done(function() {
                     sucDetail();
@@ -32,7 +37,6 @@ $(function() {
             goBack();
         }
     }];
-
     buildDetail(options);
 
 

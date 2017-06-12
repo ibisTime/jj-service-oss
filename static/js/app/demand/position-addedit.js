@@ -6,10 +6,10 @@ $(function() {
 
     var fields = [{
         title: '所属企业',
-        field: 'company-name',
+        field: 'companyName',
         readonly: true,
         type: 'm2o',
-        url: $('#basePath').val() + '/general/company_addedit.htm',
+        url: $('#basePath').val() + 'company_addedit.html',
         codeField: 'companyCode'
     }, {
         title: '职位名称',

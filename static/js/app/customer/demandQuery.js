@@ -22,10 +22,11 @@ $(function() {
     }];
     buildList({
         columns: columns,
-        pageCode: ' ',
-        deleteCode: ' ',
+        pageCode: '805054',
+        // deleteCode: ' ',
         searchParams: {
-            companyCode: OSS.company
+            companyCode: OSS.company,
+            kind: 'f1'
         }
     });
 

@@ -29,7 +29,7 @@ $(function() {
         type: 'select',
         keyName: 'code',
         valueName: 'name',
-        searchName: 'name'
+        searchName: 'name',
         readonly: true,
         afterSet: function(v, r) {
             if (v == 2) {

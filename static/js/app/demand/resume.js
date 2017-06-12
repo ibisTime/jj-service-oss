@@ -9,7 +9,7 @@ $(function() {
         field: 'name',
         title: '简历名称'
     }, {
-        field: 'publisher',
+        field: 'realName',
         title: '发布人',
     }, {
         field: 'status',
@@ -30,7 +30,7 @@ $(function() {
         columns: columns,
         pageCode: '612185',
         searchParams: {
-            companyCode: OSS.company
+            // companyCode: OSS.company
         }
     })
 

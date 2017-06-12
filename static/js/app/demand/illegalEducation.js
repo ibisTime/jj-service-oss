@@ -13,7 +13,7 @@ $(function() {
     var options = {
         fields: fields,
         code: code,
-        detailCode: '612096',
+        detailCode: '612097',
 
     };
 
