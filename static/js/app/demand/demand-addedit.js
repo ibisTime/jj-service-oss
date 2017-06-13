@@ -10,7 +10,7 @@ $(function() {
             readonly: true
         }, {
             title: '需求人',
-            field: 'expCompany',
+            field: 'publisher',
             readonly: true
         }, {
             title: '联系方式',
@@ -21,16 +21,36 @@ $(function() {
             field: 'name',
             required: true,
             readonly: true
+        }, {
+            title: '意向类型',
+            field: 'qualityCode',
+            type: "select",
+            listCode: "612016",
+            search: true,
+            keyName: 'code',
+            valueName: 'name',
+            readonly: true
+        }, {
+            title: '意向时间',
+            field: 'publishDatetime',
+            formatter: dateTimeFormat,
+            required: true,
+            readonly: true
+        }, {
+            title: '意向状态',
+            field: 'status',
+            type: 'select',
+            data: { '0': '违规', '1': '正常' }
         },
-        {
-            title: '意向企业',
-            field: 'expCompanyName',
-            readonly: true,
-            type: 'm2o',
-            url: $('#basePath').val() + 'company_addedit.html',
-            codeField: 'expCompany',
-            defaultValue: 'All'
-        },
+        // {
+        //     title: '意向企业',
+        //     field: 'expCompanyName',
+        //     readonly: true,
+        //     type: 'm2o',
+        //     url: $('#basePath').val() + 'company_addedit.html',
+        //     codeField: 'expCompany',
+        //     defaultValue: 'All'
+        // },
         {
             title: '紧急程度',
             field: 'urgentLevel',

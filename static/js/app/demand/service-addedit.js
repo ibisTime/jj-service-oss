@@ -22,7 +22,7 @@ $(function() {
         },
         readonly: true,
     }, {
-        field: 'qualityCode',
+        field: 'qualifyCode',
         title: '所属资质',
         listCode: "612016",
         search: true,
@@ -363,6 +363,7 @@ $(function() {
     }, {
         title: '详情描述',
         field: 'description',
+        type: 'textarea',
         readonly: true
     }];
     buildDetail({

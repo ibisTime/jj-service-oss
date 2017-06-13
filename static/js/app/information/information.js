@@ -2,6 +2,7 @@ $(function() {
     var code = getQueryString('code');
     var view = getQueryString('v');
 
+
     var fields = [{
         title: '标题',
         field: 'title',
@@ -16,6 +17,18 @@ $(function() {
         required: true,
         readonly: !!view,
     }, {
+        title: '发送方',
+        field: "sendPlatform",
+        maxlength: 255,
+        required: true,
+    }, {
+        title: '摘要',
+        field: "summary",
+        maxlength: 255,
+        type: "textarea",
+        normalArea: true,
+        required: true,
+    }, {
         title: '内容',
         field: 'content',
         type: 'textarea',
@@ -26,21 +39,53 @@ $(function() {
         field: 'remark',
         maxlength: 30,
         readonly: !!view,
-    }, {
-        title: '',
-        field: 'companyCode',
-        type: 'hidden',
-        value: '1',
     }];
 
-    var options = {};
-    if (view) {
-        options.buttons = [{
-            'title': '返回',
-            handler: function() {
-                goBack();
+    var options = {
+        fields: fields,
+        code: code,
+        detailCode: '612007',
+        view: view,
+    };
+
+    var codeEdit = code ? "612001" : "612000";
+    options.buttons = [{
+        title: '保存',
+        handler: function() {
+            if ($('#jsForm').valid()) {
+                var data = $('#jsForm').serializeObject();
+                data['code'] = code;
+                data['approver'] = sessionStorage.getItem('userName');
+                data["isPublish"] = "0";
+                reqApi({
+                    code: codeEdit,
+                    json: data
+                }).done(function() {
+                    sucDetail();
+                });
             }
-        }];
-    }
-    buildDetail(router, fields, code, options);
+        }
+    }, {
+        title: '直接发布',
+        handler: function() {
+            if ($('#jsForm').valid()) {
+                var data = $('#jsForm').serializeObject();
+                data['code'] = code;
+                data['approver'] = sessionStorage.getItem('userName');
+                data["isPublish"] = "1";
+                reqApi({
+                    code: codeEdit,
+                    json: data
+                }).done(function() {
+                    toastr.info('操作成功！')
+                });
+            }
+        }
+    }];
+
+    buildDetail(options);
+
+
+
+
 });
