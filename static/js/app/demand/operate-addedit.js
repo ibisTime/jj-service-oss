@@ -6,7 +6,7 @@ $(function() {
 
     var fields = [{
         title: '所属企业',
-        field: 'companyCode',
+        field: 'companyName',
         readonly: true,
         // type: 'm2o',
         // url: $('#basePath').val() + 'company_addedit.html',

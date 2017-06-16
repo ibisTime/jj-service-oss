@@ -12,11 +12,11 @@ $(function() {
     }
 
     var fields = [{
-            title: '企业名称',
+            title: '真实姓名',
             field: 'name',
             readonly: true
         }, {
-            title: '工商营业执照号',
+            title: '身份证照片',
             field: 'gsyyzzh',
             required: true,
             readonly: true,
@@ -24,7 +24,7 @@ $(function() {
             type: 'img'
         },
         {
-            title: '企业图标',
+            title: '个体户图标',
             field: 'logo',
             required: true,
             readonly: true,
@@ -39,17 +39,7 @@ $(function() {
             field: 'mobile',
             maxlength: 30,
             readonly: true
-        }, {
-            title: '联系人邮箱',
-            field: 'email',
-            maxlength: 30,
-            readonly: true
-        }, {
-            title: '联系人qq号码',
-            field: 'qq',
-            maxlength: 30,
-            readonly: true
-        }, {
+        },  {
             title: '规模',
             field: 'scale',
             required: true,
@@ -82,44 +72,18 @@ $(function() {
         {
             title: "资质",
             type: "title"
-        },
-        //  {
-        //     title: "公司资质",
-        //     type: 'o2m',
-        //     field: "wfd",
-        //     readonly: true,
-        //     columns: [{
-        //         field: 'realName',
-        //         title: '所属资质'
-        //     }, {
-        //         field: 'name',
-        //         title: '资质名称',
-        //         readonly: true
-        //     }, {
-        //         field: 'idKind',
-        //         title: '报价区间',
-        //         formatter: function(v, data) {
-
-        //         }
-        //     }, {
-        //         field: 'idNo',
-        //         title: '状态'
-        //     }, {
-        //         field: 'mobile',
-        //         title: '审核人'
-        //     }, {
-        //         field: 'mobile',
-        //         title: '审核时间'
-        //     }, {
-        //         field: 'mobile',
-        //         title: '操作'
-        //     }, ]
-        // }
-        {
+        },{
             field: 'qualifyName',
             title: '资质名称',
             formatter: function(v, data) {
-                return data.oriData.qualifyName
+                return data.oriData.qualify.name
+            },
+            readonly: true
+        },{
+            field: 'qualifyDeta',
+            title: '资质详述',
+            formatter: function(v, data) {
+                return data.oriData.qualify.description
             },
             readonly: true
         }, {

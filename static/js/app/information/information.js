@@ -61,7 +61,10 @@ $(function() {
                     code: codeEdit,
                     json: data
                 }).done(function() {
-                    sucDetail();
+                    toastr.info('操作成功！')
+                    setTimeout(function() {
+                    window.location.href = "./information.html"
+                }, 1000);
                 });
             }
         }
@@ -78,6 +81,9 @@ $(function() {
                     json: data
                 }).done(function() {
                     toastr.info('操作成功！')
+                    setTimeout(function() {
+                    window.location.href = "./information.html"
+                }, 1000);
                 });
             }
         }

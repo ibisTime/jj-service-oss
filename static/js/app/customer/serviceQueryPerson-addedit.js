@@ -11,18 +11,18 @@ $(function() {
     }
 
     var fields = [{
-            title: '企业名称',
+            title: '真实名称',
             field: 'name',
             readonly: true
         }, {
-            title: '工商营业执照号',
-            field: 'gsyyzzh',
+            title: '身份证照片',
+            field: 'idNo',
             required: true,
             readonly: true,
             maxlength: 30,
             type: 'img'
         },{
-            title: '企业图标',
+            title: '个体户图标',
             field: 'logo',
             required: true,
             readonly: true,
@@ -107,8 +107,8 @@ $(function() {
         title:"资质状态",
         field:"status",
         type:"select",
-        key:'cmpcerti_status',
-        readonly: true
+        key:'cmpcerti_status', 
+        readonly:true
     }];
 
     buildDetail({
@@ -118,7 +118,6 @@ $(function() {
         detailCode: '612062',
         // editCode: ' '
     });
-   $("#subBtn").remove();
-
+    $("#subBtn").remove();
 
 });

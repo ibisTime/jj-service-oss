@@ -5,14 +5,14 @@ $(function() {
 
 
     var fields = [{
-            field: 'name',
-            title: '服务名称',
-        }, {
             title: '所属公司',
-            field: 'companyCode',
+            field: 'companyName',
             required: true,
             readonly: true
-        },
+        },{
+            field: 'name',
+            title: '服务名称',
+        }, 
         // {
         //     title: '意向企业',
         //     field: 'expCompanyName',

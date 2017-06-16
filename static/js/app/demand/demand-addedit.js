@@ -6,11 +6,11 @@ $(function() {
 
     var fields = [{
             title: '意向企业',
-            field: 'expCompany',
+            field: 'expCompanyName',
             readonly: true
         }, {
             title: '需求人',
-            field: 'publisher',
+            field: 'publisherName',
             readonly: true
         }, {
             title: '联系方式',
@@ -59,7 +59,7 @@ $(function() {
             key: 'urgent_level',
             required: true,
         }, {
-            title: '需求描述',
+            title: '详情描述',
             field: 'description',
             type: 'textarea',
             readonly: true,

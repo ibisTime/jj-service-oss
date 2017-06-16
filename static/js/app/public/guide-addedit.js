@@ -3,7 +3,7 @@ $(function() {
     reqApi({
         code: '807717',
         json: {
-            ckey: 'sysMobile'
+            ckey: 'guide'
         },
         sync: true
     }).then(function(data) {

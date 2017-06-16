@@ -82,44 +82,18 @@ $(function() {
         {
             title: "资质",
             type: "title"
-        },
-        //  {
-        //     title: "公司资质",
-        //     type: 'o2m',
-        //     field: "wfd",
-        //     readonly: true,
-        //     columns: [{
-        //         field: 'realName',
-        //         title: '所属资质'
-        //     }, {
-        //         field: 'name',
-        //         title: '资质名称',
-        //         readonly: true
-        //     }, {
-        //         field: 'idKind',
-        //         title: '报价区间',
-        //         formatter: function(v, data) {
-
-        //         }
-        //     }, {
-        //         field: 'idNo',
-        //         title: '状态'
-        //     }, {
-        //         field: 'mobile',
-        //         title: '审核人'
-        //     }, {
-        //         field: 'mobile',
-        //         title: '审核时间'
-        //     }, {
-        //         field: 'mobile',
-        //         title: '操作'
-        //     }, ]
-        // }
-        {
+        },{
             field: 'qualifyName',
             title: '资质名称',
             formatter: function(v, data) {
-                return data.oriData.qualifyName
+                return data.oriData.qualify.name
+            },
+            readonly: true
+        },{
+            field: 'qualifyDeta',
+            title: '资质详述',
+            formatter: function(v, data) {
+                return data.oriData.qualify.description
             },
             readonly: true
         }, {

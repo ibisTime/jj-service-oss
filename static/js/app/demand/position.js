@@ -39,7 +39,7 @@ $(function() {
         title: '热门',
         type: 'select',
         search: true,
-        data: { '0': '否', '1': '是' }
+        data: { '0': '普通', '1': '热门' }
     }, {
         field: 'publishDatetime',
         title: '更新时间',
@@ -63,6 +63,10 @@ $(function() {
     $('#hotBtn').click(function() {
         var selRecords = $('#tableList').bootstrapTable('getSelections');
         if (selRecords.length <= 0) {
+            toastr.info("请选择记录");
+            return;
+        }
+         if (selRecords[0].status == "0") {
             toastr.info("请选择记录");
             return;
         }

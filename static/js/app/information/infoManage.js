@@ -32,7 +32,8 @@ $(function() {
         title: "状态",
         field: 'status',
         type: "select",
-        data: { '0': '草稿', '1': '已发布', '2': '已下架' }
+        data: { '0': '草稿', '1': '已发布', '2': '已下架' },
+        search:true
     }, {
         field: 'updateDatetime',
         title: '发布时间',

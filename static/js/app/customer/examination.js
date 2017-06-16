@@ -73,8 +73,10 @@
              toastr.info("请选择记录");
              return;
          }
-         if (selRecords[0].status == "1") {
+         if (selRecords[0].status == "1"&& selRecords[0].company.type == "1") {
              window.location.href = "examination_check.html?code=" + selRecords[0].code;
+         } else  if (selRecords[0].status == "1"&& selRecords[0].company.type == "2") {
+             window.location.href = "examindividual_check.html?code=" + selRecords[0].code;
          } else {
              toastr.warning("不是待审核的状态");
              return;
@@ -90,9 +92,10 @@
          }
 
          if (selRecords[0].company.type == "1") {
-
+            //公司
              window.location.href = "examination_addedit.html?code=" + selRecords[0].code;
          } else {
+            //个体户
              window.location.href = "examindividual_addedit.html?code=" + selRecords[0].code;
          }
      });

@@ -85,48 +85,14 @@ $(function() {
         }, {
             title: "资质",
             type: "title"
-        },
-        //  {
-        //     title: "公司资质",
-        //     type: 'o2m',
-        //     field: "wfd",
-        //     readonly: true,
-        //     columns: [{
-        //         field: 'realName',
-        //         title: '所属资质'
-        //     }, {
-        //         field: 'name',
-        //         title: '资质名称',
-        //         readonly: true
-        //     }, {
-        //         field: 'idKind',
-        //         title: '报价区间',
-        //         formatter: function(v, data) {
-
-        //         }
-        //     }, {
-        //         field: 'idNo',
-        //         title: '状态'
-        //     }, {
-        //         field: 'mobile',
-        //         title: '审核人'
-        //     }, {
-        //         field: 'mobile',
-        //         title: '审核时间'
-        //     }, {
-        //         field: 'mobile',
-        //         title: '操作'
-        //     }, ]
-        // }
-        {
+        }, {
             field: 'qualifyName',
             title: '资质名称',
             formatter: function(v, data) {
-                return data.oriData.qualifyName
+                return data.oriData.qualify.name
             },
             readonly: true
-        },
-        {
+        }, {
             field: 'status',
             title: '状态',
             type: 'select',
@@ -134,27 +100,19 @@ $(function() {
                 return cmpcertiStatus[data.oriData.status];
             },
             // key: 'cmpcerti_status',
-
         }, {
             title: "审核人",
             field: "approver",
             formatter: function(v, data) {
                 return data.oriData.approver
-            },
+            }
         }, {
             title: "审核说明",
             field: "approveNote",
             formatter: function(v, data) {
                 return data.oriData.approveNote
-            },
-        },
-        // {
-        //     title: "审核时间",
-        //     field: "approveDatetime",
-        //     formatter: function(v, data) {
-        //         return dateTimeFormat[data.oriData.approveDatetime];
-        //     },
-        // }
+            }
+        }
     ]
 
 
