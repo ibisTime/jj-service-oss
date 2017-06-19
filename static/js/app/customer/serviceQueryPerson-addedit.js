@@ -55,11 +55,17 @@ $(function() {
         },{
             title:"注册资本",
             field:"registeredCapital",
+            formatter:function(v,data){
+                return +data.registeredCapital+"万"
+            },
             readonly: true
         }, {
             title:"成立年限",
             field:"regtime",
-            readonly: true
+            readonly: true,
+            formatter:function(v,data){
+                return +data.regtime+"年"
+            },
         }, {
             title: '规模',
             field: 'scale',

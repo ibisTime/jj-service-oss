@@ -36,7 +36,7 @@
          visible: false
      }, {
          field: 'qualifyName1',
-         title: '资质',
+         title: '所属资质',
          formatter: function(v, data) {
              return data.qualifyName
          }

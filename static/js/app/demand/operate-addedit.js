@@ -2,15 +2,12 @@ $(function() {
 
     var code = getQueryString('code');
     var view = getQueryString('v');
-var tgfwDict = Dict.getNameForList("dp_tgfw");
+
 
     var fields = [{
         title: '所属企业',
         field: 'companyName',
-        readonly: true,
-        // type: 'm2o',
-        // url: $('#basePath').val() + 'company_addedit.html',
-        // codeField: 'companyCode'
+        readonly: true
     }, {
         field: 'qualifyCode',
         title: '所属资质',
@@ -56,7 +53,6 @@ var tgfwDict = Dict.getNameForList("dp_tgfw");
         field: 'sucCase',
         readonly: true,
         type:"img"
-        // link: true
     }, {
         title: '广告图',
         field: 'advPic',
@@ -71,7 +67,7 @@ var tgfwDict = Dict.getNameForList("dp_tgfw");
         title: '详情描述',
         field: 'description',
         readonly: true,
-        type: 'textarea',
+        type: 'textarea'
     }];
 
     buildDetail({

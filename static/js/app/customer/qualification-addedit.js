@@ -18,6 +18,7 @@ $(function() {
         title: '资质简介',
         field: 'description',
         type: 'textarea',
+        normalArea:true,
         readonly: !!view
     }];
 
