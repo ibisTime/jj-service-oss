@@ -9,9 +9,12 @@ $(function() {
         field: 'mobile',
         required: true,
         readonly: !!view
+    },{
+        title:"昵称",
+        field:"nickname"
     }, {
         title: '注册时间',
-        field: 'updateDatetime',
+        field: 'createDatetime',
         required: true,
         formatter: dateTimeFormat,
         readonly: !!view

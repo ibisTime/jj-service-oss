@@ -9,7 +9,7 @@ $(function() {
 		title : '种类',
 		search: true,
 		type: 'select',
-		listCode: '808907',
+		listCode: '807706',
 		params: {
 			type: 0
 		},
@@ -35,8 +35,8 @@ $(function() {
 	buildList({
 		router: 'dict',
 		columns: columns,
-		pageCode: '808905',
-		deleteCode: '808901',
+		pageCode: '807705',
+		// deleteCode: '808901',
 		searchParams:{
 			companyCode: OSS.company
 		}

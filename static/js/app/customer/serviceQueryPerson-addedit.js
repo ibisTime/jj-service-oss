@@ -2,13 +2,13 @@ $(function() {
 
     var code = getQueryString('code');
     var view = !!getQueryString('v');
-    var compScale = {
-        "1": "0-20人",
-        "2": " 20 - 50 人",
-        "3": "50 - 200 人",
-        "4": "200 - 500 人",
-        "5": "500 人以上"
-    }
+    // var compScale = {
+    //     "1": "0-20人",
+    //     "2": " 20 - 50 人",
+    //     "3": "50 - 200 人",
+    //     "4": "200 - 500 人",
+    //     "5": "500 人以上"
+    // }
 
     var fields = [{
             title: '真实名称',
@@ -39,7 +39,7 @@ $(function() {
             readonly:true
         }, {
             title: '缩略图',
-            field: 'Pic',
+            field: 'pic',
             required: true,
             readonly: true,
             type: 'img'
@@ -68,15 +68,8 @@ $(function() {
             type: 'select',
             key: 'comp_scale'
         }, {
-            placeholder: '详细地址（如街道、门牌号等）',
-            field: 'address',
-            required: true,
-            maxlength: 100,
-            hidden: true
-        }, {
             title: '地址',
             field: 'province1',
-            hidden: !view,
             readonly: true,
             formatter: function(v, r) {
                 var res = $.unique([r.province, r.city, r.area]).reverse();
@@ -115,8 +108,7 @@ $(function() {
         fields: fields,
         code: code,
         view: view,
-        detailCode: '612062',
-        // editCode: ' '
+        detailCode: '612062'
     });
     $("#subBtn").remove();
 

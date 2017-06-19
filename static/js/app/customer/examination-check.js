@@ -39,17 +39,7 @@ $(function() {
             field: 'mobile',
             maxlength: 30,
             readonly: true
-        }, {
-            title: '联系人邮箱',
-            field: 'email',
-            maxlength: 30,
-            readonly: true
-        }, {
-            title: '联系人qq号码',
-            field: 'qq',
-            maxlength: 30,
-            readonly: true
-        }, {
+        },  {
             title: '规模',
             field: 'scale',
             required: true,
@@ -97,6 +87,20 @@ $(function() {
             },
             readonly: true
         }, {
+            field: 'slogan',
+            title: '广告语',
+            formatter: function(v, data) {
+                return data.oriData.slogan
+            },
+            readonly: true   
+         }, {
+                title:"价格区间",
+                field:"priceRange",
+                    formatter: function(v, data) {
+                return data.oriData.priceRange
+                 },
+                 readonly: true   
+                 },{
             title: "审核说明",
             field: "approveNote",
             required: true

@@ -1572,7 +1572,7 @@ function buildDetail(options) {
                         } else {
                             var dv = '';
                             if (realValue) {
-                                realValue.split('').forEach(function(i) {
+                                realValue.split(',').forEach(function(i) {
                                     dv += Dict.getName(item.key, i) + ' | ';
                                 });
                                 dv = dv.slice(0, dv.length - 3);

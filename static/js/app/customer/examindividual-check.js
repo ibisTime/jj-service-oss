@@ -17,7 +17,7 @@ $(function() {
             readonly: true
         }, {
             title: '身份证照片',
-            field: 'gsyyzzh',
+            field: 'idNo',
             required: true,
             readonly: true,
             maxlength: 30,
@@ -66,8 +66,7 @@ $(function() {
             field: 'description',
             required: true,
             type: 'textarea',
-            readonly: true,
-
+            readonly: true
         },
         {
             title: "资质",
@@ -86,7 +85,21 @@ $(function() {
                 return data.oriData.qualify.description
             },
             readonly: true
-        }, {
+        },{
+            field: 'slogan',
+            title: '广告语',
+            formatter: function(v, data) {
+                return data.oriData.slogan
+            },
+            readonly: true   
+         }, {
+                title:"价格区间",
+                field:"priceRange",
+                    formatter: function(v, data) {
+                return data.oriData.priceRange
+                 },
+                 readonly: true   
+            }, {
             title: "审核说明",
             field: "approveNote",
             required: true

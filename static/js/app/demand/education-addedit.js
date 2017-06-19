@@ -37,7 +37,7 @@ $(function() {
             title: '讲师总人数',
             field: 'lectorNum',
             readonly: true,
-            hidden: true
+            // hidden: true
         }, {
             title: '月均培训场次',
             field: 'mtrainTimes',
@@ -50,30 +50,31 @@ $(function() {
         }, {
             title: '3位核心讲师简历1',
             field: 'resume1',
-            readonly: true,
-            link: true
+            type:"img",
+            readonly: true
         }, {
             title: '3位核心讲师简历2',
             field: 'resume2',
             readonly: true,
-            link: true
+             type:"img"
         }, {
             title: '3位核心讲师简历3',
             field: 'resume3',
             readonly: true,
-            link: true
+            type:"img",
         },
-        // {
-        //     title: "发布时间",
-        //     field: "publishDatetime",
-        //     formatter: dateTimeFormat,
-        //     readonly: true,
-        // }, 
-        // {
-        //     title: "发布人",
-        //     field: 'publisher'
-        // }, 
         {
+        title: '广告图',
+        field: 'advPic',
+        readonly: true,
+        type: 'img'
+    }, {
+        title: '缩略图',
+        field: 'pic',
+        readonly: true,
+        type: 'img'
+    },
+       {
             title: "详情描述",
             field: "description",
             type: "textarea",

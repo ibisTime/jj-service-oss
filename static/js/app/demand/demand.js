@@ -33,7 +33,8 @@ $(function() {
             field: 'status',
             title: '状态',
             type: 'select',
-            data: { '0': '违规', '1': '正常' }
+            data: { '0': '违规', '1': '正常' },
+            search:true
         }, {
             field: 'dealNote',
             title: '违规提示'

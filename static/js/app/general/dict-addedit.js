@@ -13,7 +13,7 @@ $(function() {
 		field: 'parentKey',
 		required: true,
 		type: 'select',
-		listCode: '808907',
+		listCode: '807706',
 		params: {
 			type: 0
 		},
@@ -40,9 +40,9 @@ $(function() {
 	buildDetail({
 		fields: fields,
 		code: code,
-		addCode: '808900',
-		editCode: '808902',
-		detailCode: '808906'
+		// addCode: '808900',
+		editCode: '807702',
+		detailCode: '807707'
 	});
 	
 });

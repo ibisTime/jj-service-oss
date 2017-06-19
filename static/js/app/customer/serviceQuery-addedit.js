@@ -2,13 +2,7 @@ $(function() {
 
     var code = getQueryString('code');
     var view = !!getQueryString('v');
-    var compScale = {
-        "1": "0-20人",
-        "2": " 20 - 50 人",
-        "3": "50 - 200 人",
-        "4": "200 - 500 人",
-        "5": "500 人以上"
-    }
+    
 
     var fields = [{
             title: '企业名称',
@@ -39,7 +33,7 @@ $(function() {
             readonly:true
         }, {
             title: '缩略图',
-            field: 'Pic',
+            field: 'pic',
             required: true,
             readonly: true,
             type: 'img'
@@ -67,16 +61,10 @@ $(function() {
             readonly: true,
             type: 'select',
             key: 'comp_scale'
-        }, {
-            placeholder: '详细地址（如街道、门牌号等）',
-            field: 'address',
-            required: true,
-            maxlength: 100,
-            hidden: true
-        }, {
+        },{
             title: '地址',
             field: 'province1',
-            hidden: !view,
+            // hidden: !view,
             readonly: true,
             formatter: function(v, r) {
                 var res = $.unique([r.province, r.city, r.area]).reverse();
@@ -87,8 +75,7 @@ $(function() {
             field: 'description',
             required: true,
             type: 'textarea',
-            readonly: true,
-
+            readonly: true
         },
     {
         title: '所属资质',

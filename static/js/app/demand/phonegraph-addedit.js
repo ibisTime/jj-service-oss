@@ -52,6 +52,16 @@ $(function() {
         readonly: true,
         type: 'img'
     }, {
+        title: '广告图',
+        field: 'advPic',
+        readonly: true,
+        type: 'img'
+    }, {
+        title: '缩略图',
+        field: 'pic',
+        readonly: true,
+        type: 'img'
+    }, {
         title: '详情描述',
         field: 'description',
         readonly: true,

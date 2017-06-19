@@ -10,7 +10,7 @@ $(function() {
         title: '手机号',
         search: true
     }, {
-        field: 'updateDatetime',
+        field: 'createDatetime',
         title: '注册时间',
         formatter: dateTimeFormat,
     }, {

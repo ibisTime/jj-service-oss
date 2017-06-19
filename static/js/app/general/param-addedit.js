@@ -21,7 +21,7 @@ $(function() {
 		fields: fields,
 		code: code,
 //		addCode:"807710",
-		detailCode: '615916',
-		editCode: '615910'
+		detailCode: '807716',
+		editCode: '807711'
 	});
 });
