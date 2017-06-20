@@ -13,6 +13,15 @@ $(function() {
         field: 'corporation',
         title: '公司法人'
     }, {
+        title:'所属资质',
+        field:"qualifyCode",
+        listCode: "612016",
+        type: 'select',
+        keyName: 'code',
+        valueName: 'name',
+        searchName: 'name',
+        search:true
+    },{
         field: 'mobile',
         title: '联系人电话'
     }, {

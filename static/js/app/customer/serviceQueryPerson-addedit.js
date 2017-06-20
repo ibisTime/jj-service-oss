@@ -53,19 +53,19 @@ $(function() {
             maxlength: 30,
             readonly: true
         },{
-            title:"注册资本",
+            title:"注册资本（万）",
             field:"registeredCapital",
-            formatter:function(v,data){
-                return +data.registeredCapital+"万"
-            },
+            // formatter:function(v,data){
+            //     return +data.registeredCapital+"万"
+            // },
             readonly: true
         }, {
-            title:"成立年限",
+            title:"成立年限（年）",
             field:"regtime",
             readonly: true,
-            formatter:function(v,data){
-                return +data.regtime+"年"
-            },
+            // formatter:function(v,data){
+            //     return +data.regtime+"年"
+            // },
         }, {
             title: '规模',
             field: 'scale',

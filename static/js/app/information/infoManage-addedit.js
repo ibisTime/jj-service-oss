@@ -13,7 +13,8 @@ $(function() {
         title: '类型',
         field: 'type',
         type: 'select',
-        data: { '1': '公告', '2': '新闻' },
+        value:"2",
+        data: { '2': '新闻' },
         required: true,
         readonly: !!view,
     }, {

@@ -12,8 +12,7 @@ $(function() {
         field: 'type',
         title: '类型',
         type: 'select',
-        data: { '1': '公告', '2': '新闻' },
-        search: true,
+        data: { '1': '公告', '2': '新闻' }
     }, {
         title: '发送方',
         field: "sendPlatform",

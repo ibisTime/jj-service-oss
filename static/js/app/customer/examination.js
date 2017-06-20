@@ -35,12 +35,8 @@
          searchName: 'name',
          visible: false
      }, {
-         field: 'qualifyName1',
-         title: '所属资质',
-         formatter: function(v, data) {
-             return data.qualifyName
-         }
-
+         field: 'qualifyName',
+         title: '所属资质'
      }, {
          field: 'status',
          title: '状态',
