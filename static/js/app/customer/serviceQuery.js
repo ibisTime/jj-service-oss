@@ -13,15 +13,18 @@ $(function() {
         field: 'corporation',
         title: '公司法人'
     }, {
-        title:'所属资质',
-        field:"qualifyCode",
+        title: '所属资质',
+        field: "qualifyCode",
         listCode: "612016",
+        params: {
+            updater: ""
+        },
         type: 'select',
         keyName: 'code',
         valueName: 'name',
         searchName: 'name',
-        search:true
-    },{
+        search: true
+    }, {
         field: 'mobile',
         title: '联系人电话'
     }, {
@@ -31,9 +34,9 @@ $(function() {
         search: true,
         data: { '0': '普通', '1': '热门' }
     }, {
-        title:"次序",
-        field:"orderNo"
-    },{
+        title: "次序",
+        field: "orderNo"
+    }, {
         title: '更新时间',
         field: 'updateDatetime',
         formatter: dateTimeFormat,
@@ -54,18 +57,18 @@ $(function() {
         window.location.href = "hotCompany.html?code=" + selRecords[0].code;
     });
     $("#detaBtn").click(function() {
-         var selRecords = $('#tableList').bootstrapTable('getSelections');
-         if (selRecords.length <= 0) {
-             toastr.info("请选择记录");
-             return;
-         }
+        var selRecords = $('#tableList').bootstrapTable('getSelections');
+        if (selRecords.length <= 0) {
+            toastr.info("请选择记录");
+            return;
+        }
 
-         if (selRecords[0].type == "1") {
-        //公司
-             window.location.href = "serviceQuery_addedit.html?code=" + selRecords[0].code;
-         } else {
-          //个体户
-             window.location.href = "serviceQueryPerson_addedit.html?code=" + selRecords[0].code;
-         }
-     });
+        if (selRecords[0].type == "1") {
+            //公司
+            window.location.href = "serviceQuery_addedit.html?code=" + selRecords[0].code;
+        } else {
+            //个体户
+            window.location.href = "serviceQueryPerson_addedit.html?code=" + selRecords[0].code;
+        }
+    });
 })

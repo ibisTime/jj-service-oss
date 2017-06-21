@@ -12,6 +12,9 @@ $(function() {
         field: 'qualifyCode',
         title: '所属资质',
         listCode: "612016",
+        params: {
+            updater: ""
+        },
         search: true,
         type: 'select',
         keyName: 'code',
@@ -50,20 +53,20 @@ $(function() {
         title: '状态',
         type: 'select',
         data: { '0': '违规', '1': '正常' },
-        search:true
+        search: true
     }, {
         field: 'location',
         title: '热门',
         type: 'select',
         search: true,
         data: { '0': '普通', '1': '热门' }
-    },  {
+    }, {
         field: 'orderNo',
         title: '次序'
     }, {
         field: 'dealNote',
         title: '违规提示'
-    },{
+    }, {
         field: 'publishDatetime',
         title: '更新时间',
         formatter: dateTimeFormat

@@ -15,6 +15,9 @@ $(function() {
         field: 'qualifyCode',
         title: '所属资质',
         listCode: "612016",
+        params: {
+            updater: ""
+        },
         search: true,
         type: 'select',
         keyName: 'code',

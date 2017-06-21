@@ -25,6 +25,9 @@ $(function() {
         field: 'qualifyCode',
         title: '所属资质',
         listCode: "612016",
+        params: {
+            updater: ""
+        },
         search: true,
         type: 'select',
         keyName: 'code',
@@ -135,19 +138,19 @@ $(function() {
         field: 'serveTrain-resume1',
         readonly: true,
         hidden: true,
-         type:"img"
+        type: "img"
     }, {
         title: '3位核心讲师简历2',
         field: 'serveTrain-resume2',
         readonly: true,
         hidden: true,
-        type:"img"
+        type: "img"
     }, {
         title: '3位核心讲师简历3',
         field: 'serveTrain-resume3',
         readonly: true,
         hidden: true,
-       type:"img"
+        type: "img"
     }, {
         title: '培训课程上传',
         field: 'serveTrain-course',
@@ -186,8 +189,8 @@ $(function() {
         field: 'serveShop-sucCase',
         readonly: true,
         hidden: true,
-        type:'img'
-        // link: true
+        type: 'img'
+            // link: true
     }, {
         title: '设计师总人数',
         field: 'serveArt-designNum',

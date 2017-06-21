@@ -2,7 +2,7 @@ $(function() {
 
     var code = getQueryString('code');
     var view = !!getQueryString('v');
-    
+
 
     var fields = [{
             title: '企业名称',
@@ -15,29 +15,29 @@ $(function() {
             readonly: true,
             maxlength: 30,
             type: 'img'
-        },{
+        }, {
             title: '企业图标',
             field: 'logo',
             required: true,
             readonly: true,
             type: 'img'
-        },{
+        }, {
             title: '广告图',
             field: 'advPic',
             required: true,
             readonly: true,
             type: 'img'
-        },{
-            title:"广告语",
-            field:'slogan',
-            readonly:true
+        }, {
+            title: "广告语",
+            field: 'slogan',
+            readonly: true
         }, {
             title: '缩略图',
             field: 'pic',
             required: true,
             readonly: true,
             type: 'img'
-        },{
+        }, {
             title: '联系人',
             field: 'corporation',
             readonly: true
@@ -46,13 +46,13 @@ $(function() {
             field: 'mobile',
             maxlength: 30,
             readonly: true
-        },{
-            title:"注册资本（万）",
-            field:"registeredCapital",
+        }, {
+            title: "注册资本（万）",
+            field: "registeredCapital",
             readonly: true
         }, {
-            title:"成立年限（年）",
-            field:"regtime",
+            title: "成立年限（年）",
+            field: "regtime",
             readonly: true
         }, {
             title: '规模',
@@ -61,7 +61,7 @@ $(function() {
             readonly: true,
             type: 'select',
             key: 'comp_scale'
-        },{
+        }, {
             title: '地址',
             field: 'province1',
             // hidden: !view,
@@ -77,26 +77,30 @@ $(function() {
             type: 'textarea',
             readonly: true
         },
-    {
-        title: '所属资质',
-        field: 'qualifyType',
-        readonly: true,
-        listCode: "612016",
-        type: 'select',
-        keyName: 'code',
-        valueName: 'name',
-        searchName: 'name'
-    },{
-        title: '报价区间',
-        field: 'priceRange',
-        readonly: true
-    }, {
-        title:"资质状态",
-        field:"status",
-        type:"select",
-        key:'cmpcerti_status',
-        readonly: true
-    }];
+        {
+            title: '所属资质',
+            field: 'qualifyType',
+            readonly: true,
+            listCode: "612016",
+            params: {
+                updater: ""
+            },
+            type: 'select',
+            keyName: 'code',
+            valueName: 'name',
+            searchName: 'name'
+        }, {
+            title: '报价区间',
+            field: 'priceRange',
+            readonly: true
+        }, {
+            title: "资质状态",
+            field: "status",
+            type: "select",
+            key: 'cmpcerti_status',
+            readonly: true
+        }
+    ];
 
     buildDetail({
         fields: fields,
@@ -105,7 +109,7 @@ $(function() {
         detailCode: '612062',
         // editCode: ' '
     });
-   $("#subBtn").remove();
+    $("#subBtn").remove();
 
 
 });

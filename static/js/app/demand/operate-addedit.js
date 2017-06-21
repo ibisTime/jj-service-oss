@@ -12,6 +12,9 @@ $(function() {
         field: 'qualifyCode',
         title: '所属资质',
         listCode: "612016",
+        params: {
+            updater: ""
+        },
         search: true,
         type: 'select',
         keyName: 'code',
@@ -52,7 +55,7 @@ $(function() {
         title: '成功案例展示',
         field: 'sucCase',
         readonly: true,
-        type:"img"
+        type: "img"
     }, {
         title: '广告图',
         field: 'advPic',
@@ -63,7 +66,7 @@ $(function() {
         field: 'pic',
         readonly: true,
         type: 'img'
-    },{
+    }, {
         title: '详情描述',
         field: 'description',
         readonly: true,

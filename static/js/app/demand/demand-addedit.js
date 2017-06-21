@@ -26,6 +26,9 @@ $(function() {
             field: 'qualityCode',
             type: "select",
             listCode: "612016",
+            params: {
+                updater: ""
+            },
             search: true,
             keyName: 'code',
             valueName: 'name',
